@@ -1,0 +1,674 @@
+{
+  "users": {
+    "admin": {
+      "password_hash": "9ce5075a9826f68f02f2254e0e9b0fadde979b0efcadc2743f15f2013c856d1a",
+      "created_at": "2026-03-10T21:02:25.827985",
+      "api_key": "",
+      "profile": {
+        "name": "Testing",
+        "age": 22,
+        "gender": "Male",
+        "weight": 78.0,
+        "height": 180.0,
+        "activity": "Moderate",
+        "goal": "Muscle Gain",
+        "diet_type": "Vegetarian"
+      },
+      "history": [
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T21:23:35.070874",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve your **Muscle Gain** goal, we will focus on a high-calorie, high-protein **Vegetarian** diet. Here is a 12-week roadmap:\n\n### Weekly Caloric Intake\nYour daily caloric int..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-10T21:24:39.452303",
+          "inputs": {},
+          "output_preview": "## Workout \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo support **Hypertrophy Training** for a **Vegetarian** diet, focus on consuming a balanced mix of **Carbohydrates**, **Protein**, and **Healthy Fats**. Here are some pre and p..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-10T21:25:51.314432",
+          "inputs": {},
+          "output_preview": "## Workout ### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f\nTo support **Hypertrophy training** and **Muscle Gain** as a vegetarian, it's essential to focus on a diet rich in **protein**, **complex carbohydrates**, and **healthy fats**. He..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-10T21:26:45.590950",
+          "inputs": {},
+          "output_preview": "## Workout \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo support **muscle gain** as a vegetarian, it's essential to consume a balanced diet that includes a mix of **proteins**, **carbohydrates**, and **healthy fats**. Here are some..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-10T21:28:30.389875",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo achieve **muscle gain** on a **vegetarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guid..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T21:33:52.592261",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T21:41:01.124606",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T21:42:53.512489",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **muscle gain** as a vegetarian, it's essential to consume a calorie-surplus diet with adequate **protein**, **carbohydrates**, and **healthy fats**. Here's a breakdown..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T21:53:09.879971",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **Muscle Gain** as a vegetarian, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, and **fats**. Here's a detailed br..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T21:53:33.713098",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **muscle gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **protein**, **carbohydrates**, and **healthy fats**. Here's a breakdo..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T21:56:27.980915",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-10T21:59:29.691956",
+          "inputs": {},
+          "output_preview": "## Regional \n### \ud83c\udf5b South Indian Vegetarian Diet Plan for Muscle Gain\nTo achieve muscle gain, it's essential to consume a **calorie-surplus diet** with a balance of **protein**, **carbohydrates**, and ..."
+        },
+        {
+          "feature": "Food Photo",
+          "timestamp": "2026-03-10T22:06:40.000233",
+          "inputs": {},
+          "output_preview": "## Food Photo Analysis\n\n### Food Identification\n\nThe food in the image appears to be a vegetarian meal consisting of rice, lentil soup, and a vegetable stir-fry. The lentil soup is likely made with da..."
+        },
+        {
+          "feature": "Food Photo",
+          "timestamp": "2026-03-10T22:10:24.973855",
+          "inputs": {},
+          "output_preview": "## Food Photo Analysis\n\n### Food Identification\n\nThe food in the image appears to be a vegetarian meal consisting of rice, dal (lentil soup), and a vegetable side dish.\n\n### Caloric Estimate\n\nBased on..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T22:25:46.624319",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **muscle gain** as a vegetarian, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, and **fats**. Here's a detailed br..."
+        },
+        {
+          "feature": "Food Photo",
+          "timestamp": "2026-03-10T22:26:00.829721",
+          "inputs": {},
+          "output_preview": "## Food Photo Analysis\n\n### Food Description\n\nThe provided image showcases a traditional Indian meal consisting of rice, lentil soup, and mixed vegetables.\n\n### Caloric Estimate\n\nBased on the portion ..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-10T22:33:42.174394",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo support **muscle gain** on a **vegetarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guid..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T23:06:41.566827",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a detaile..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T23:08:31.288709",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-10T23:09:34.400974",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Vegetarian Diet Plan \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, ..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T23:11:13.102337",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a breakdo..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-10T23:11:46.813841",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Introduction to **Vegetarian** Diet \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **ca..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T23:13:38.488802",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **muscle gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **protein**, **carbohydrates**, and **healthy fats**. Here's a breakdow..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-10T23:15:52.787048",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo achieve **muscle gain** on a **vegetarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guid..."
+        },
+        {
+          "feature": "Food Photo",
+          "timestamp": "2026-03-10T23:31:07.789903",
+          "inputs": {},
+          "output_preview": "## Food Photo Analysis\n\n### Food Description\nThe food consists of a bowl of yellow lentil soup (dal), a serving of rice, and a mixed vegetable dish. The lentil soup is a common Indian dish made from s..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-10T23:39:03.667827",
+          "inputs": {},
+          "output_preview": "## North Indian Vegetarian Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, and **fats**. As a vegeta..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T14:42:03.860678",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-11T14:42:21.294788",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a breakdow..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-11T14:43:03.146537",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo achieve **muscle gain** on a **vegetarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guid..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T14:47:31.855436",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-11T23:36:25.904739",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **protein**, **carbohydrates**, and **healthy fats**. Here's a breakdo..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T23:38:33.357570",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T23:52:33.149930",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-12T00:07:39.268309",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo achieve **muscle gain** on a **vegetarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guid..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:08:43.313011",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:12:54.832207",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:13:30.902381",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve your **Muscle Gain** goal as a vegetarian, we'll focus on a high-calorie, high-protein diet. Here's a 12-week roadmap:\n\n### Weekly Caloric Intake\nYour daily caloric i..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-12T00:14:57.527443",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Vegetarian Diet for Muscle Gain \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carboh..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:16:26.877676",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-12T00:16:45.575640",
+          "inputs": {},
+          "output_preview": "## Macros ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo gain muscle, it's essential to be in a **caloric surplus**, meaning you need to consume more calories than your body burns. As a vegetarian, you'll focus on Indian foods rich in..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-12T00:17:11.700470",
+          "inputs": {},
+          "output_preview": "## North Indian Vegetarian Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, and **fats**. As a vegeta..."
+        },
+        {
+          "feature": "Recomp",
+          "timestamp": "2026-03-12T00:17:32.036500",
+          "inputs": {},
+          "output_preview": "## Recomp \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **muscle gain** and **fat loss** on a **vegetarian diet**, we'll focus on a calorie-surplus diet with a balance of **protein**, **carbohydrates**, and **healthy fats**. Here..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-12T00:18:22.431163",
+          "inputs": {},
+          "output_preview": "## Workout \n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f \nTo support **Hypertrophy training** and **Muscle Gain** as a vegetarian, it's essential to focus on a diet rich in protein, complex carbohydrates, and healthy fats. Here are som..."
+        },
+        {
+          "feature": "Fasting",
+          "timestamp": "2026-03-12T00:18:35.558761",
+          "inputs": {},
+          "output_preview": "## Fasting \ud83c\udf19 \nTo gain muscle on a vegetarian diet, it's essential to consume a calorie-surplus diet with adequate **protein**. Here's a 16:8 Intermittent Fasting (IF) schedule for you:\n\n* **Fasting wi..."
+        },
+        {
+          "feature": "Supplements",
+          "timestamp": "2026-03-12T00:18:50.035555",
+          "inputs": {},
+          "output_preview": "## Supplements\n### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f Muscle Gain Supplements for Vegetarians\nTo support muscle gain on a vegetarian diet, it's essential to fill the nutritional gaps that are common in Indian vegetarian diets. He..."
+        },
+        {
+          "feature": "Health Plan",
+          "timestamp": "2026-03-12T00:19:20.070472",
+          "inputs": {},
+          "output_preview": "## Health Plan \ud83e\udd57\nTo manage **PCOS** (Polycystic Ovary Syndrome) and promote **muscle gain** on a **vegetarian diet**, it's essential to focus on **therapeutic Indian foods** that help regulate hormona..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:42:24.595145",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-12T00:43:07.452295",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f \nTo achieve **muscle gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **protein**, **carbohydrates**, and **healthy fats**. Here's a breakdo..."
+        },
+        {
+          "feature": "Recomp",
+          "timestamp": "2026-03-12T00:44:05.275988",
+          "inputs": {},
+          "output_preview": "## Recomp \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f\nTo achieve a body recomposition with a **vegetarian Indian diet**, we will focus on a calorie-controlled diet with a balance of **protein**, **carbohydrates**, and **healthy fats**. Ou..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T01:05:53.003601",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-wee..."
+        },
+        {
+          "feature": "Recomp",
+          "timestamp": "2026-03-12T01:15:12.363192",
+          "inputs": {},
+          "output_preview": "## Recomp \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **muscle gain** and **fat loss** on a **vegetarian diet**, we'll focus on a calorie-surplus diet with a balance of **protein**, **carbohydrates**, and **healthy fats**. Here..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-12T01:16:06.771584",
+          "inputs": {},
+          "output_preview": "## Workout ### \ud83c\udfcb\ufe0f\nTo support **Hypertrophy training** and **Muscle Gain** on a **Vegetarian** diet, it's essential to focus on nutrient-dense meals that provide adequate **Protein**, **Carbohydrates**..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T19:00:10.604001",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** as a vegetarian, it's essential to focus on a calorie-surplus diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Here's a 12-week hi..."
+        },
+        {
+          "feature": "Workout",
+          "timestamp": "2026-03-12T19:05:13.076890",
+          "inputs": {},
+          "output_preview": "## Workout \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f \nTo support **muscle gain** as a vegetarian, it's essential to consume a balanced diet that includes **protein**, **complex carbohydrates**, and **healthy fats**. Here are some p..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-13T22:45:59.292380",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Vegetarian Diet for Muscle Gain \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carboh..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:49:07.307923",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Roadmap**\n\n**Your Profile:**\n- **Age:** Not specified\n- **Weight:** 78 kg\n- **Goal:** Muscle Gain\n- **Diet:** Vegetarian\n\n**Roadmap Overview:**\nThis 12-..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-13T22:49:24.408087",
+          "inputs": {},
+          "output_preview": "## Meal Prep \ud83e\udd57\n### **Vegetarian Muscle Gain Plan**\n\n**User Profile:** 78.0kg weight, Goal: Muscle Gain, Diet: Vegetarian\n\n**Daily Caloric Intake:** 2500 calories (adjust according to individual needs)..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-13T22:49:39.383047",
+          "inputs": {},
+          "output_preview": "## Macros \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Muscle Gain through Vegetarian Diet\n\nTo achieve muscle gain, we need to ensure adequate protein intake, sufficient calories, and balanced macronutrients. Here's a detailed daily me..."
+        },
+        {
+          "feature": "Recomp",
+          "timestamp": "2026-03-13T22:49:55.860714",
+          "inputs": {},
+          "output_preview": "## Recomp \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### A 12-Week Indian Vegetarian Diet Plan for Muscle Gain and Fat Loss\n\n**Disclaimer:** Before starting any new diet plan, please consult with a healthcare professional or a registered..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-13T22:50:09.007692",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83e\udd57\n\n### **Key Principles:**\n\n*   High-calorie intake to support muscle growth\n*   Balanced mix of protein, carbohydrates, and healthy fats\n*   Emphasi..."
+        },
+        {
+          "feature": "Fasting",
+          "timestamp": "2026-03-13T22:50:33.044876",
+          "inputs": {},
+          "output_preview": "## Fasting\n### \ud83c\udf03\n\nAs a senior Indian clinical nutritionist, I recommend a 16:8 intermittent fasting (IF) schedule for muscle gain, with a focus on vegetarian Indian cuisine.\n\n### Fasting Window: 16 ho..."
+        },
+        {
+          "feature": "Food Photo",
+          "timestamp": "2026-03-13T22:50:52.651401",
+          "inputs": {},
+          "output_preview": "## Food Photo Analysis\n\n### Food Identification\n\nThe image presents a traditional Indian meal consisting of rice, lentils, and vegetables. The food is likely a combination of rice, dal (lentils), and ..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:51:25.016733",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Muscle Gain Roadmap for Vegetarian User\n\n#### Key Metrics:\n\n| Metric | Target Value |\n| --- | --- |\n| Weight | 85 kg (12-week goal) |\n| Body Fat Percentage | 20-22% |\n| Daily Ca..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:55:23.010716",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Roadmap**\n\n**Profile:**\n- Age: Not specified\n- Weight: 78.0 kg\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**12-Week Roadmap:**\n\n### **Weeks 1-4: Building F..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:55:48.994794",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Vegetarian Muscle Gain Roadmap\n\n**User Profile:**\n- Age: Not specified\n- Weight: 78.0 kg\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**12-Week High-Level Nutrition Roadmap:**\n\n### W..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:56:15.462138",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Muscle Gain Roadmap for Vegetarian User\n\n**User Profile:**\n- Weight: 78.0 kg\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**12-Week Nutrition Roadmap:**\n\n#### Week 1-4: **Caloric Sur..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T22:56:26.418040",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Roadmap**\n\n#### **Profile:**\n- **Age:** Not specified\n- **Weight:** 78.0 kg\n- **Goal:** Muscle Gain\n- **Diet:** Vegetarian\n\n#### **Roadmap Overview:**\n-..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:34:48.912659",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Muscle Gain Roadmap for Vegetarian User\n\n**User Profile:**\n- Age: Not specified\n- Weight: 78.0 kg\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Roadmap Overview:**\nThis 12-week high..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-13T23:35:02.479722",
+          "inputs": {},
+          "output_preview": "## Macros \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Diet Plan**\n\nTo achieve muscle gain on a vegetarian diet, we need to ensure adequate protein intake, sufficient calories, and balanced macronutrients. Base..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:37:04.542076",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Roadmap**\n\n**Your Profile:**\n- Name: Testing\n- Age: 22\n- Weight: 78.0 kg\n- Height: 180.0 cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-13T23:37:22.317880",
+          "inputs": {},
+          "output_preview": "## Macros \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Diet Plan**\n\n**Testing's Profile:**\n- Age: 22\n- Weight: 78.0 kg\n- Height: 180.0 cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Daily Mac..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-13T23:37:39.773228",
+          "inputs": {},
+          "output_preview": "## Gujarati Regional Diet Plan \ud83e\udd57\n### For Muscle Gain in a Vegetarian\n\n**Key Considerations:**\n\n* High protein intake from Gujarati sources like dals, beans, and nuts\n* Adequate calorie and carbohydrat..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:39:30.646998",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Muscle Gain Roadmap for Testing**\n\n**Profile:**\n- Name: Testing\n- Age: 22\n- Weight: 78.0kg\n- Height: 180.0cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Roa..."
+        },
+        {
+          "feature": "Supplements",
+          "timestamp": "2026-03-13T23:39:36.437089",
+          "inputs": {},
+          "output_preview": "## Supplements\n### \ud83e\udd57\nAs a senior Indian clinical nutritionist, I recommend the following evidence-based supplements tailored to Indian dietary gaps for a 22-year-old vegetarian male with a moderate ac..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:42:18.394199",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Roadmap**\n\n**Profile:**\n- Name: Testing\n- Age: 22\n- Weight: 78.0kg\n- Height: 180.0cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Nutr..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:42:53.133192",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### 12-Week High-Level Nutrition Roadmap for Muscle Gain\n\n**Your Profile:**\n- Name: Testing\n- Age: 22\n- Weight: 78.0kg\n- Height: 180.0cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- D..."
+        }
+      ],
+      "saved_plans": {
+        "Dashboard": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### 12-Week High-Level Nutrition Roadmap for Muscle Gain\n\n**Your Profile:**\n- Name: Testing\n- Age: 22\n- Weight: 78.0kg\n- Height: 180.0cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Macro Breakdown:**\n| Macronutrient | Target Intake |\n| --- | --- |\n| **Calories** | 2500-2800 |\n| **Protein** | 1.6-2.2g/kg body weight (126-170g) |\n| **Carbohydrates** | 2-3g/kg body weight (156-234g) |\n| **Fat** | 0.5-1g/kg body weight (39-78g) |\n\n**Meal Frequency and Timing:**\n- 5-6 meals/day (3 main meals, 2-3 snacks)\n- Space meals 2-3 hours apart\n- Post-workout meal within 30-60 minutes\n\n**Key Foods:**\n- **Protein Sources:**\n  - Chana (chickpeas) - 1 cup cooked\n  - Paneer (Indian cheese) - 1 cup cubed\n  - Soybeans - 1 cup cooked\n  - Makhana (fox nuts) - 1 cup roasted\n- **Complex Carbohydrates:**\n  - Brown rice - 2 cups cooked\n  - Whole wheat roti - 4-5 rotis\n  - Oats - 1 cup cooked\n  - Quinoa - 1 cup cooked\n- **Healthy Fats:**\n  - Nuts and seeds (almonds, walnuts, chia seeds) - 1/4 cup\n  - Avocado - 1/2 cup sliced\n\n**Sample Meal Plan:**\n\n| Meal | Food | Quantity |\n| --- | --- | --- |\n| Breakfast | Oatmeal with nuts and seeds | 1 cup cooked + 1/4 cup |\n| Snack | Chana and whole wheat roti | 1 cup cooked + 2 rotis |\n| Lunch | Brown rice with paneer and vegetables | 2 cups cooked + 1 cup cubed + 1 cup mixed |\n| Snack | Makhana and avocado | 1 cup roasted + 1/2 cup sliced |\n| Post-workout | Soybeans and banana | 1 cup cooked + 1 medium |\n| Dinner | Quinoa with vegetables and nuts | 1 cup cooked + 1 cup mixed + 1/4 cup |\n\n**Progress Monitoring:**\n- Weigh yourself once a week\n- Track food intake and physical activity\n- Adjust meal plan as needed\n\n**Instructions:**\n\n1. Consult a doctor before starting any new diet or exercise program.\n2. Follow the meal plan and adjust quantities based on your individual needs.\n3. Incorporate strength training exercises 3-4 times a week to support muscle gain.\n4. Stay hydrated by drinking plenty of water throughout the day.\n5. Monitor your progress and adjust the meal plan as needed to achieve your goal.",
+        "Workout": "## Workout \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f \nTo support **muscle gain** as a vegetarian, it's essential to consume a balanced diet that includes **protein**, **complex carbohydrates**, and **healthy fats**. Here are some pre and post-workout Indian meal options for strength training:\n\n### Pre-Workout Meal\n* Consume a meal that is **high in carbohydrates** and **moderate in protein** about 1-2 hours before your workout.\n* Examples of pre-workout meals:\n\t+ 1 katori (1/2 cup) of **oats** with 1/2 katori (1/4 cup) of **almonds** and 1/2 katori (1/4 cup) of **dried fruits**.\n\t+ 1 katori (1/2 cup) of **brown rice** with 1 katori (1/2 cup) of **mixed vegetables** and 1/2 katori (1/4 cup) of **dal**.\n\t+ 1 katori (1/2 cup) of **whole wheat bread** with 1/2 katori (1/4 cup) of **peanut butter** and 1/2 katori (1/4 cup) of **banana** slices.\n\n### Post-Workout Meal\n* Consume a meal that is **high in protein** and **moderate in carbohydrates** within 30-60 minutes after your workout.\n* Examples of post-workout meals:\n\t+ 1 katori (1/2 cup) of **Greek yogurt** with 1/2 katori (1/4 cup) of **honey** and 1/2 katori (1/4 cup) of **mixed nuts**.\n\t+ 1 katori (1/2 cup) of **paneer** with 1 katori (1/2 cup) of **brown rice** and 1 katori (1/2 cup) of **mixed vegetables**.\n\t+ 1 katori (1/2 cup) of **smoothie** made with 1/2 katori (1/4 cup) of **protein powder**, 1/2 katori (1/4 cup) of **banana**, and 1/2 katori (1/4 cup) of **almond milk**.\n\n### Additional Tips\n* **Stay hydrated** by drinking plenty of water throughout the day.\n* **Include healthy fats** in your diet, such as **nuts**, **seeds**, and **avocado**.\n* **Aim to eat 5-6 meals** per day, spaced out every 2-3 hours, to support **muscle growth** and **recovery**.\n\n### Sample Meal Plan\n| Meal | Food | Quantity |\n| --- | --- | --- |\n| Breakfast | Oats with almonds and dried fruits | 1 katori (1/2 cup) |\n| Snack | Greek yogurt with honey and mixed nuts | 1 katori (1/2 cup) |\n| Lunch | Brown rice with mixed vegetables and dal | 2 katori (1 cup) |\n| Snack | Smoothie with protein powder, banana, and almond milk | 1 katori (1/2 cup) |\n| Dinner | Paneer with brown rice and mixed vegetables | 2 katori (1 cup) |\n| Before Bed | Peanut butter with whole wheat bread and banana slices | 1 katori (1/2 cup) |\n\n**Remember to consult with a healthcare professional or a registered dietitian to determine the best meal plan for your individual needs.** \n**Instructions:** \n1. Eat a **balanced diet** that includes a variety of **vegetarian protein sources**, such as **dal**, **paneer**, and **nuts**.\n2. **Stay hydrated** by drinking at least **8-10 glasses of water** per day.\n3. **Aim to eat 5-6 meals** per day, spaced out every 2-3 hours, to support **muscle growth** and **recovery**.\n4. **Include healthy fats** in your diet, such as **nuts**, **seeds**, and **avocado**.\n5. **Consult with a healthcare professional or a registered dietitian** to determine the best meal plan for your individual needs.",
+        "Meal Prep": "## Meal Prep \ud83e\udd57\n### **Vegetarian Muscle Gain Plan**\n\n**User Profile:** 78.0kg weight, Goal: Muscle Gain, Diet: Vegetarian\n\n**Daily Caloric Intake:** 2500 calories (adjust according to individual needs)\n\n**Macro Breakdown:**\n\n* **Protein:** 170g\n* **Carbohydrates:** 350g\n* **Fat:** 80g\n\n**Meal Prep Plan for a Week**\n\n### **Monday**\n\n* **Breakfast:** **Oatmeal with Nuts and Seeds** (250 calories)\n + 2 katori rolled oats\n + 1/2 katori chopped almonds\n + 1/2 katori pumpkin seeds\n + 1 cup low-fat milk\n* **Lunch:** **Vegetable and Bean Wrap** (400 calories)\n + 1 whole wheat wrap\n + 1 cup cooked mixed vegetables (carrots, beans, peas)\n + 1/2 cup cooked black beans\n + 1 tablespoon hummus\n* **Dinner:** **Lentil and Vegetable Curry** (500 calories)\n + 1 cup cooked lentils\n + 1 cup mixed vegetables (bell peppers, onions, tomatoes)\n + 2 tablespoons vegetable oil\n + 1 teaspoon cumin powder\n* **Snack:** **Apple and Peanut Butter** (150 calories)\n + 1 medium apple\n + 2 tablespoons peanut butter\n\n### **Tuesday**\n\n* **Breakfast:** **Poha with Nuts and Fruits** (250 calories)\n + 2 katori poha\n + 1/2 katori chopped almonds\n + 1/2 cup mixed fruits (banana, berries)\n + 1 cup low-fat milk\n* **Lunch:** **Chickpea and Vegetable Salad** (400 calories)\n + 1 cup cooked chickpeas\n + 1 cup mixed vegetables (cucumber, tomatoes, carrots)\n + 2 tablespoons lemon juice\n + 1 teaspoon cumin powder\n* **Dinner:** **Vegetable and Bean Biryani** (500 calories)\n + 1 cup cooked mixed vegetables (carrots, beans, peas)\n + 1/2 cup cooked black beans\n + 2 cups cooked basmati rice\n + 2 tablespoons vegetable oil\n* **Snack:** **Carrot and Ginger Soup** (150 calories)\n + 2 medium carrots\n + 1-inch ginger\n + 1 cup low-fat milk\n\n### **Wednesday**\n\n* **Breakfast:** **Upma with Nuts and Seeds** (250 calories)\n + 2 katori upma\n + 1/2 katori chopped almonds\n + 1/2 katori pumpkin seeds\n + 1 cup low-fat milk\n* **Lunch:** **Vegetable and Bean Quesadilla** (400 calories)\n + 1 whole wheat wrap\n + 1 cup cooked mixed vegetables (bell peppers, onions, tomatoes)\n + 1/2 cup cooked black beans\n + 1 tablespoon hummus\n* **Dinner:** **Lentil and Vegetable Soup** (500 calories)\n + 1 cup cooked lentils\n + 1 cup mixed vegetables (carrots, beans, peas)\n + 2 tablespoons vegetable oil\n + 1 teaspoon cumin powder\n* **Snack:** **Banana and Almond Butter** (150 calories)\n + 1 medium banana\n + 2 tablespoons almond butter\n\n### **Thursday**\n\n* **Breakfast:** **Idli with Coconut Chutney** (250 calories)\n + 2 idlis\n + 1/2 cup coconut chutney\n + 1 cup low-fat milk\n* **Lunch:** **Chickpea and Vegetable Wrap** (400 calories)\n + 1 whole wheat wrap\n + 1 cup cooked chickpeas\n + 1 cup mixed vegetables (cucumber, tomatoes, carrots)\n + 1 tablespoon hummus\n* **Dinner:** **Vegetable and Bean Curry** (500 calories)\n + 1 cup cooked mixed vegetables (bell peppers, onions, tomatoes)\n + 1/2 cup cooked black beans\n + 2 tablespoons vegetable oil\n + 1 teaspoon cumin powder\n* **Snack:** **Cucumber and Yogurt** (150 calories)\n + 1 medium cucumber\n + 1 cup low-fat yogurt\n\n### **Friday**\n\n* **Breakfast:** **Poha with Nuts and Fruits** (250 calories)\n + 2 katori poha\n + 1/2 katori chopped almonds\n + 1/2 cup mixed fruits (banana, berries)\n + 1 cup low-fat milk\n* **Lunch:** **Lentil and Vegetable Salad** (400 calories)\n + 1 cup cooked lentils\n + 1 cup mixed vegetables (carrots, beans, peas)\n + 2 tablespoons lemon juice\n + 1 teaspoon cumin powder\n* **Dinner:** **Vegetable and Bean Biryani** (500 calories)\n + 1 cup cooked mixed vegetables (carrots, beans, peas)\n + 1/2 cup cooked black beans\n + 2 cups cooked basmati rice\n + 2 tablespoons vegetable oil\n* **Snack:** **Apple and Peanut Butter** (150 calories)\n + 1 medium apple\n + 2 tablespoons peanut butter\n\n### **Saturday**\n\n* **Breakfast:** **Upma with Nuts and Seeds** (250 calories)\n + 2 katori upma\n + 1/2 katori chopped almonds\n + 1/2 katori pumpkin seeds\n + 1 cup low-fat milk\n* **Lunch:** **Chickpea and Vegetable Wrap** (400 calories)\n + 1 whole wheat wrap\n + 1 cup cooked chickpeas\n + 1 cup mixed vegetables (cucumber, tomatoes, carrots)\n + 1 tablespoon hummus\n* **Dinner:** **Lentil and Vegetable Curry** (500 calories)\n + 1 cup cooked lentils\n + 1 cup mixed vegetables (bell peppers, onions, tomatoes)\n + 2 tablespoons vegetable oil\n + 1 teaspoon cumin powder\n* **Snack:** **Banana and Almond Butter** (150 calories)\n + 1 medium banana\n + 2 tablespoons almond butter\n\n### **Sunday**\n\n* **Breakfast:** **Idli with Coconut Chutney** (250 calories)\n + 2 idlis\n + 1/2 cup coconut chutney\n + 1 cup low-fat milk\n* **Lunch:** **Vegetable and Bean Quesadilla** (400 calories)\n + 1 whole wheat wrap\n + 1 cup cooked mixed vegetables (bell peppers, onions, tomatoes)\n + 1/2 cup cooked black beans\n +",
+        "Macros": "## Macros \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### **Vegetarian Muscle Gain Diet Plan**\n\n**Testing's Profile:**\n- Age: 22\n- Weight: 78.0 kg\n- Height: 180.0 cm\n- Activity: Moderate\n- Goal: Muscle Gain\n- Diet: Vegetarian\n\n**Daily Macro Requirements:**\n\n| Macronutrient | Quantity |\n| --- | --- |\n| **Calories** | 2500 |\n| **Protein** | 170g |\n| **Carbohydrates** | 300g |\n| **Fat** | 70g |\n\n**Food Plan:**\n\n### **Breakfast**\n\n* **Poha with Nuts and Dry Fruits** (1 cup poha, 2 tbsp almonds, 2 tbsp cashews, 1/4 cup dry fruits)\n + **Calories**: 450\n + **Protein**: 15g\n + **Carbohydrates**: 60g\n + **Fat**: 20g\n* **Glass of Low-Fat Milk** (1 cup)\n + **Calories**: 120\n + **Protein**: 8g\n + **Carbohydrates**: 20g\n + **Fat**: 5g\n\n### **Mid-Morning Snack**\n\n* **Banana with Peanut Butter** (1 banana, 2 tbsp peanut butter)\n + **Calories**: 250\n + **Protein**: 8g\n + **Carbohydrates**: 30g\n + **Fat**: 16g\n\n### **Lunch**\n\n* **Brown Rice** (1 cup cooked)\n + **Calories**: 110\n + **Protein**: 2g\n + **Carbohydrates**: 25g\n + **Fat**: 1g\n* **Chana Masala** (1 cup cooked)\n + **Calories**: 200\n + **Protein**: 15g\n + **Carbohydrates**: 20g\n + **Fat**: 10g\n* **Mixed Vegetables** (1 cup cooked)\n + **Calories**: 50\n + **Protein**: 2g\n + **Carbohydrates**: 10g\n + **Fat**: 0g\n\n### **Mid-Afternoon Snack**\n\n* **Apple with Almond Butter** (1 apple, 2 tbsp almond butter)\n + **Calories**: 220\n + **Protein**: 4g\n + **Carbohydrates**: 30g\n + **Fat**: 16g\n\n### **Dinner**\n\n* **Whole Wheat Roti** (2 rotis)\n + **Calories**: 120\n + **Protein**: 4g\n + **Carbohydrates**: 20g\n + **Fat**: 2g\n* **Palak Paneer** (1 cup cooked)\n + **Calories**: 250\n + **Protein**: 20g\n + **Carbohydrates**: 10g\n + **Fat**: 15g\n* **Mixed Vegetables** (1 cup cooked)\n + **Calories**: 50\n + **Protein**: 2g\n + **Carbohydrates**: 10g\n + **Fat**: 0g\n\n### **Before Bedtime Snack**\n\n* **Glass of Low-Fat Milk** (1 cup)\n + **Calories**: 120\n + **Protein**: 8g\n + **Carbohydrates**: 20g\n + **Fat**: 5g\n\n**Total Daily Macros:**\n\n| Macronutrient | Quantity |\n| --- | --- |\n| **Calories** | 2500 |\n| **Protein** | 173g |\n| **Carbohydrates** | 310g |\n| **Fat** | 73g |\n\n**Instructions:**\n\n1. Drink at least 8-10 glasses of water throughout the day.\n2. Eat every 2-3 hours to maintain a positive nitrogen balance.\n3. Include a source of protein with every meal and snack.\n4. Choose complex carbohydrates like brown rice, whole wheat roti, and mixed vegetables.\n5. Healthy fats like nuts, seeds, and avocado should be included in moderation.\n6. Consult a healthcare professional or registered dietitian before making any changes to your diet.",
+        "Regional": "## Gujarati Regional Diet Plan \ud83e\udd57\n### For Muscle Gain in a Vegetarian\n\n**Key Considerations:**\n\n* High protein intake from Gujarati sources like dals, beans, and nuts\n* Adequate calorie and carbohydrate intake for muscle growth\n* Balanced fatty acid intake from sources like ghee and nuts\n* Hydration and fiber-rich foods for overall health\n\n**Daily Meal Plan:**\n\n#### Breakfast\n\n* **Thepla** (Gujarati flatbread) with **Masala Omelette** (2 theplas, 1 omelette)\n\t+ 2 theplas = 120 calories, 4g protein, 20g carbs\n\t+ 1 omelette = 100 calories, 10g protein, 2g carbs\n* **Gujarati-Style Tea** (1 cup) = 0 calories, 0g protein, 0g carbs\n\n#### Mid-Morning Snack\n\n* **Handvo** (Gujarati savory cake) (1 piece) = 150 calories, 5g protein, 20g carbs\n* **Fresh Fruits** (1 cup) = 50 calories, 1g protein, 10g carbs\n\n#### Lunch\n\n* **Khichdi** (Gujarati mixed rice dish) (1 cup) = 200 calories, 10g protein, 30g carbs\n* **Raita** (Gujarati yogurt side dish) (1 cup) = 100 calories, 5g protein, 10g carbs\n* **Papad** (Gujarati flatbread) (2 pieces) = 100 calories, 2g protein, 20g carbs\n\n#### Mid-Afternoon Snack\n\n* **Dhokla** (Gujarati steamed cake) (1 piece) = 120 calories, 5g protein, 20g carbs\n* **Nuts** (1/4 cup) = 100 calories, 2g protein, 10g carbs\n\n#### Dinner\n\n* **Dal** (Gujarati lentil soup) (1 cup) = 200 calories, 15g protein, 30g carbs\n* **Roti** (Gujarati flatbread) (2 pieces) = 120 calories, 4g protein, 20g carbs\n* **Sabzi** (Gujarati vegetable dish) (1 cup) = 100 calories, 5g protein, 10g carbs\n\n#### Before Bedtime Snack\n\n* **Gujarati-Style Milk** (1 cup) = 100 calories, 8g protein, 10g carbs\n* **Dry Fruits** (1/4 cup) = 100 calories, 2g protein, 10g carbs\n\n**Supplements:**\n\n* **Protein Powder** (1 scoop) = 120 calories, 20g protein, 0g carbs\n* **Multivitamin** (1 tablet) = 0 calories, 0g protein, 0g carbs\n\n**Hydration:**\n\n* **Water** (at least 8 cups) = 0 calories, 0g protein, 0g carbs\n* **Coconut Water** (1 cup) = 45 calories, 1g protein, 10g carbs\n\n**Fiber-Rich Foods:**\n\n* **Fresh Fruits** (at least 2 cups) = 100 calories, 2g protein, 20g carbs\n* **Vegetables** (at least 2 cups) = 50 calories, 2g protein, 10g carbs\n\n**Tips:**\n\n* Eat frequently to maintain muscle growth\n* Include a variety of Gujarati dishes in your diet\n* Stay hydrated and listen to your body's nutritional needs\n\n**Instructions:**\n\n1. Consult a doctor or a registered dietitian before starting any new diet plan.\n2. Adjust the portion sizes based on your individual calorie needs.\n3. Include a variety of Gujarati dishes in your diet to ensure you get all the necessary nutrients.\n4. Stay hydrated by drinking plenty of water and coconut water.\n5. Listen to your body's nutritional needs and adjust the diet plan accordingly.",
+        "Food Photo": "## Food Photo Analysis\n\n### Food Identification\n\nThe image presents a traditional Indian meal consisting of rice, lentils, and vegetables. The food is likely a combination of rice, dal (lentils), and a vegetable stir-fry.\n\n### Caloric Estimate\n\nTo estimate the caloric content of this meal, we need to consider the typical portion sizes and ingredients used in Indian cuisine. Assuming a standard serving size, here's a rough estimate:\n\n* Rice: 1 cup cooked = 150-200 calories\n* Dal: 1 cup cooked = 200-250 calories\n* Vegetable stir-fry: 1 cup cooked = 50-100 calories\n\nTotal estimated calories: 400-550 calories\n\n### Macronutrient Breakdown\n\n* Carbohydrates: 60-70g (from rice and dal)\n* Protein: 15-20g (from dal and vegetables)\n* Fat: 10-15g (from ghee or oil used in cooking)\n\n### Healthier Authentic Indian Alternatives\n\nFor a vegetarian diet aimed at muscle gain, consider the following healthier alternatives:\n\n* Replace white rice with brown rice or whole grain varieties to increase fiber content.\n* Use low-fat or non-dairy milk alternatives in dal recipes to reduce saturated fat intake.\n* Incorporate more protein-rich legumes like chickpeas, kidney beans, or black beans into your meals.\n* Add nuts and seeds like almonds, pumpkin seeds, or chia seeds to your meals for a boost of healthy fats and protein.\n* Experiment with different vegetable stir-fry recipes that incorporate a variety of colorful vegetables to increase nutrient diversity.\n\n### Additional Tips for Muscle Gain\n\n* Aim to consume 1.6-2.2 grams of protein per kilogram of body weight daily.\n* Incorporate strength training exercises into your workout routine to build muscle mass.\n* Ensure adequate rest and recovery time between workouts to allow your muscles to repair and grow.\n\nBy making these adjustments and incorporating these healthier alternatives, you can create a balanced and nutritious meal plan that supports your muscle gain goals while adhering to a vegetarian diet.",
+        "Recomp": "## Recomp \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### A 12-Week Indian Vegetarian Diet Plan for Muscle Gain and Fat Loss\n\n**Disclaimer:** Before starting any new diet plan, please consult with a healthcare professional or a registered dietitian.\n\n**Caloric Intake:**\nTo achieve muscle gain and fat loss, we need to be in a **caloric surplus**. This means consuming more calories than we burn. For a 78 kg individual, the daily caloric intake should be around 2500-2800 calories.\n\n**Macro Breakdown:**\n\n| Macronutrient | Quantity |\n| --- | --- |\n| **Protein** | 170-200 grams (1.5-1.7 grams per kilogram of body weight) |\n| **Carbohydrates** | 250-300 grams (2-3 grams per kilogram of body weight) |\n| **Fat** | 70-80 grams (0.5-0.6 grams per kilogram of body weight) |\n\n**Indian Vegetarian Diet Plan:**\n\n**Breakfast**\n\n* Monday, Wednesday, Friday: **Oatmeal with Nuts and Seeds** (250g cooked oats, 1/4 cup chopped almonds, 1/4 cup chia seeds, 1/2 cup low-fat milk)\n* Tuesday, Thursday: **Whole Wheat Paratha with Paneer and Vegetables** (2 parathas, 100g paneer, 1 cup mixed vegetables)\n* Saturday, Sunday: **Upma with Vegetables and Nuts** (250g upma, 1 cup mixed vegetables, 1/4 cup chopped almonds)\n\n**Mid-Morning Snack**\n\n* **Fresh Fruit and Nuts** (1 cup mixed fruits, 1/4 cup chopped almonds)\n\n**Lunch**\n\n* Monday, Wednesday, Friday: **Brown Rice with Lentils and Vegetables** (1 cup cooked brown rice, 100g cooked lentils, 1 cup mixed vegetables)\n* Tuesday, Thursday: **Whole Wheat Roti with Vegetable Biryani** (2 rotis, 1 cup vegetable biryani)\n* Saturday, Sunday: **Quinoa with Vegetables and Nuts** (1 cup cooked quinoa, 1 cup mixed vegetables, 1/4 cup chopped almonds)\n\n**Mid-Afternoon Snack**\n\n* **Yogurt with Honey and Nuts** (1 cup low-fat yogurt, 1 tsp honey, 1/4 cup chopped almonds)\n\n**Dinner**\n\n* Monday, Wednesday, Friday: **Brown Rice with Vegetable Korma** (1 cup cooked brown rice, 1 cup vegetable korma)\n* Tuesday, Thursday: **Whole Wheat Roti with Vegetable Curry** (2 rotis, 1 cup vegetable curry)\n* Saturday, Sunday: **Quinoa with Vegetable Stir-Fry** (1 cup cooked quinoa, 1 cup mixed vegetables)\n\n**Before Bedtime Snack**\n\n* **Warm Milk with Honey and Nuts** (1 cup warm milk, 1 tsp honey, 1/4 cup chopped almonds)\n\n**Supplements:**\n\n* **Protein Powder:** 1 scoop (30g) post-workout and before bedtime\n* **Creatine Monohydrate:** 3-5 grams pre-workout\n\n**Workout Plan:**\n\n* **Resistance Training:** 3 times a week (Monday, Wednesday, Friday)\n* **Cardio:** 2 times a week (Tuesday, Thursday)\n* **Rest Days:** Saturday and Sunday\n\n**Progress Monitoring:**\n\n* **Weight:** Weekly\n* **Body Fat Percentage:** Every 4 weeks\n* **Progress Photos:** Every 4 weeks\n\n**Instructions:**\n\n1. Start by following the diet plan for the first 4 weeks.\n2. Monitor your progress and adjust the diet plan as needed.\n3. Increase the caloric intake by 250-500 calories every 4 weeks if you're not gaining weight.\n4. Increase the protein intake by 20-30 grams every 4 weeks if you're not gaining muscle mass.\n5. Consult with a healthcare professional or a registered dietitian if you have any questions or concerns.",
+        "Fasting": "## Fasting\n### \ud83c\udf03\n\nAs a senior Indian clinical nutritionist, I recommend a 16:8 intermittent fasting (IF) schedule for muscle gain, with a focus on vegetarian Indian cuisine.\n\n### Fasting Window: 16 hours, Eating Window: 8 hours\n\n- **Fasting Window:** 10:00 PM to 2:00 PM (next day)\n- **Eating Window:** 2:00 PM to 10:00 PM\n\n### Sample IF Schedule\n\n| Time | Activity |\n| --- | --- |\n| 10:00 PM | Fasting begins |\n| 2:00 PM | Fasting ends, Eating begins |\n| 2:30 PM | **Breakfast** |\n| 4:00 PM | **Mid-Afternoon Snack** |\n| 6:00 PM | **Dinner** |\n| 8:00 PM | **Evening Snack** |\n| 10:00 PM | Fasting begins |\n\n### Sample Indian Breakfast Meals for Muscle Gain\n\n| Meal | Ingredients | Quantity |\n| --- | --- | --- |\n| **Poha** | Flattened rice, peanuts, onions, tomatoes, chilies | 1 cup poha, 2 tbsp peanuts, 1/2 cup chopped onions, 1/2 cup chopped tomatoes, 1-2 chilies |\n| **Idli** | Steamed rice cake, coconut chutney, sambar | 2 idlis, 2 tbsp coconut chutney, 1 cup sambar |\n| **Upma** | Semolina, vegetables, nuts | 1 cup upma, 1 cup mixed vegetables, 1 tbsp chopped nuts |\n\n### Sample Mid-Afternoon Snack\n\n| Meal | Ingredients | Quantity |\n| --- | --- | --- |\n| **Handvo** | Steamed gram flour cake, vegetables, nuts | 1 handvo, 1 cup mixed vegetables, 1 tbsp chopped nuts |\n| **Raita** | Yogurt, cucumber, cumin, coriander | 1 cup yogurt, 1/2 cup grated cucumber, 1 tsp cumin powder, 1 tsp coriander powder |\n\n### Sample Dinner Meals for Muscle Gain\n\n| Meal | Ingredients | Quantity |\n| --- | --- | --- |\n| **Dal Makhani** | Black lentils, kidney beans, ghee | 1 cup dal makhani, 2 tbsp ghee |\n| **Vegetable Biryani** | Mixed vegetables, basmati rice, nuts | 1 cup vegetable biryani, 1 tbsp chopped nuts |\n| **Palak Paneer** | Spinach, paneer, nuts | 1 cup palak paneer, 1 tbsp chopped nuts |\n\n### Sample Evening Snack\n\n| Meal | Ingredients | Quantity |\n| --- | --- | --- |\n| **Kesar Pista Kulfi** | Saffron, pistachios, milk | 1 cup kesar pista kulfi |\n| **Fruit Salad** | Mixed fruits, nuts | 1 cup mixed fruits, 1 tbsp chopped nuts |\n\n### Instructions\n\n1. **Stay hydrated:** Drink plenty of water throughout the day.\n2. **Listen to your body:** Adjust the fasting window and eating window based on your individual needs.\n3. **Consult a doctor:** Before starting any new diet or exercise program, consult with a healthcare professional.\n4. **Eat mindfully:** Savor your food and enjoy the flavors and textures.\n5. **Be consistent:** Stick to the schedule and make adjustments as needed.\n\n**Remember:** A well-planned diet and regular exercise are essential for muscle gain. Consult with a healthcare professional or a registered dietitian for personalized advice.",
+        "Supplements": "## Supplements\n### \ud83e\udd57\nAs a senior Indian clinical nutritionist, I recommend the following evidence-based supplements tailored to Indian dietary gaps for a 22-year-old vegetarian male with a moderate activity level, aiming for muscle gain.\n\n#### Macronutrient Requirements\n\n| Macronutrient | Daily Requirement |\n| --- | --- |\n| **Calories** | 2500-2800 kcal |\n| **Protein** | 1.6-2.2 grams/kg body weight (128-170g for 78kg) |\n| **Carbohydrates** | 2-3 grams/kg body weight (156-234g for 78kg) |\n| **Fat** | 0.5-1 gram/kg body weight (39-78g for 78kg) |\n\n#### Recommended Supplements\n\n*   **Protein Powder**: Whey protein or plant-based protein powder (e.g., pea or rice protein) to support muscle growth and repair. Recommended daily intake: 1-2 scoops (30-60g) post-workout and before bedtime.\n*   **Creatine Monohydrate**: To enhance muscle strength, power, and endurance. Recommended daily intake: 3-5 grams, taken before and after workouts.\n*   **BCAAs (Branched-Chain Amino Acids)**: Leucine, Isoleucine, and Valine to support muscle growth and recovery. Recommended daily intake: 5-10 grams, taken during and after workouts.\n*   **Multivitamin**: To fill any nutritional gaps in the diet. Recommended daily intake: 1 tablet or capsule after breakfast.\n*   **Omega-3 Fatty Acids**: To support heart health and inflammation reduction. Recommended daily intake: 1-2 grams, taken after breakfast.\n\n#### Indian Dietary Gaps\n\n| Nutrient | Recommended Daily Intake | Indian Dietary Gap |\n| --- | --- | --- |\n| **Vitamin D** | 600-800 IU | Common deficiency in India, especially during winter months |\n| **Iron** | 8-18 mg | Common deficiency in India, especially in vegetarian women |\n| **Calcium** | 1,000-1,200 mg | Common deficiency in India, especially in vegetarian individuals |\n\n#### Food-Based Recommendations\n\n*   Include **dals** (lentils) and **beans** in your diet to increase protein and fiber intake.\n*   Consume **nuts and seeds** (e.g., almonds, pumpkin seeds) as a healthy source of fat and protein.\n*   Eat **leafy greens** (e.g., spinach, kale) to increase iron and calcium intake.\n*   Incorporate **fortified foods** (e.g., milk, cereals) to fill any nutritional gaps.\n\n#### Instructions\n\n1.  Consult a healthcare professional before adding any supplements to your diet.\n2.  Choose a reputable brand and follow the recommended dosages.\n3.  Monitor your progress and adjust your supplement routine as needed.\n4.  Focus on a balanced diet and consult a registered dietitian or a clinical nutritionist for personalized recommendations.",
+        "Health Plan": "## Health Plan \ud83e\udd57\nTo manage **PCOS** (Polycystic Ovary Syndrome) and promote **muscle gain** on a **vegetarian diet**, it's essential to focus on **therapeutic Indian foods** that help regulate hormonal imbalance, improve insulin sensitivity, and provide adequate protein for muscle growth. \n\n### Daily Diet Plan\nThe following diet plan is tailored to meet your requirements:\n* **Early Morning**:\n\t+ 1 katori of **oats** with 1/2 katori of **almonds** and 1/2 katori of **walnuts** \n\t+ 1 cup of **tulsi tea** (Holy Basil) for its hormonal balancing properties\n* **Breakfast**:\n\t+ 2 katoris of **poha** with 1/2 katori of **peanuts** and 1/2 katori of **dried fruits** (dates, apricots)\n\t+ 1 cup of **low-fat milk** \n* **Mid-Morning Snack**:\n\t+ 1 katori of **Greek yogurt** with 1/2 katori of **honey** and 1/2 katori of **chia seeds**\n* **Lunch**:\n\t+ 2 katoris of **brown rice**\n\t+ 1 katori of **lentil soup** (moong dal)\n\t+ 1 katori of **mixed vegetables** (broccoli, carrots, bell peppers) \n\t+ 1 katori of **salad** with 1/2 katori of **pumpkin seeds**\n* **Evening Snack**:\n\t+ 1 katori of **roasted makhana** (fox nuts) \n\t+ 1 cup of **coconut water**\n* **Dinner**:\n\t+ 2 katoris of **quinoa**\n\t+ 1 katori of **palak paneer** (spinach with Indian cheese)\n\t+ 1 katori of **saag aloo** (mustard greens with potatoes)\n\n### Additional Recommendations\n* Drink at least **8-10 glasses of water** per day\n* Include **physical activity** for at least **30 minutes** daily, focusing on **strength training** to promote muscle gain\n* **Monitor and adjust** your diet based on your progress and how your body responds to these changes\n\n### Key Foods for PCOS Management\n| Food | Benefits |\n| --- | --- |\n| **Turmeric** | Anti-inflammatory properties |\n| **Ginger** | Improves insulin sensitivity |\n| **Cinnamon** | Regulates blood sugar levels |\n| **Fenugreek** | Supports hormonal balance |\n| **Leafy Greens** | Rich in antioxidants and fiber |\n\n### Instructions\n1. **Consult a healthcare provider** before starting any new diet or exercise regimen.\n2. **Keep a food diary** to track your eating habits and identify patterns.\n3. **Incorporate stress-reducing techniques** such as yoga or meditation to help manage PCOS symptoms.\n4. **Monitor your weight and body fat percentage** regularly to adjust your diet plan as needed.\n5. **Stay consistent** and patient, as managing PCOS and promoting muscle gain takes time and dedication."
+      }
+    },
+    "Venkatesh": {
+      "password_hash": "bc744dbe885ee176f410f216283e180dae52633e1cbf649f8720297018415de4",
+      "created_at": "2026-03-10T23:21:39.379344",
+      "profile": {
+        "name": "Venkatesh patil ",
+        "age": 21,
+        "gender": "Male",
+        "weight": 92.0,
+        "height": 182.88,
+        "activity": "Light",
+        "goal": "Fat Loss",
+        "diet_type": "Flexitarian"
+      },
+      "history": [
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T23:28:35.388895",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83d\udcca\nTo achieve your **Fat Loss** goal, we will follow a **Flexitarian** diet, which is primarily vegetarian with occasional inclusion of lean meats. Here's a 12-week high-level nutrition ro..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-12T01:09:47.981167",
+          "inputs": {},
+          "output_preview": "## Meal Prep \ud83c\udf72\nTo achieve **Fat Loss** on a **Flexitarian** diet, it's essential to focus on whole, nutrient-dense foods. Here's a batch-cooking meal prep guide for a week using standard Indian ingred..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-12T01:10:28.296092",
+          "inputs": {},
+          "output_preview": "## South Indian Regional Diet Plan for Fat Loss \ud83e\udd58\n### Introduction to Flexitarian Diet \ud83c\udf31\nA **Flexitarian** diet is a primarily vegetarian diet that occasionally includes **lean proteins** like fish, p..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-12T01:11:32.514904",
+          "inputs": {},
+          "output_preview": "## Regional South Indian Diet Plan for Fat Loss \ud83c\udf5b\n### Introduction to Flexitarian Diet \ud83e\udd57\nTo achieve **fat loss** on a **flexitarian diet**, it's essential to focus on whole, unprocessed foods, and lim..."
+        }
+      ],
+      "saved_plans": {
+        "Dashboard": "## Dashboard \ud83d\udcca\nTo achieve your **Fat Loss** goal, we will follow a **Flexitarian** diet, which is primarily vegetarian with occasional inclusion of lean meats. Here's a 12-week high-level nutrition roadmap:\n\n### Weekly Caloric Intake \ud83c\udf74\nTo lose weight, we need to create a caloric deficit. Our target daily caloric intake will be:\n- Week 1-4: 1800-2000 calories\n- Week 5-8: 1700-1900 calories\n- Week 9-12: 1600-1800 calories\n\n### Macronutrient Distribution \ud83d\udcc8\nOur daily macronutrient distribution will be:\n| Macronutrient | Daily Intake |\n| --- | --- |\n| **Protein** | 1.6-2 grams/kg body weight (140-160 grams) |\n| **Fat** | 20-25% of total calories (40-50 grams) |\n| **Carbohydrates** | 55-60% of total calories (250-300 grams) |\n\n### Meal Plan \ud83c\udf72\nHere's a sample meal plan:\n* **Breakfast**: 2 katori (1 cup) oatmeal with fruits and nuts, 1 cup (250ml) low-fat milk\n* **Lunch**: 2 katori (1 cup) brown rice, 1 katori (1/2 cup) mixed vegetables, 1 katori (1/2 cup) lentil soup, 1/2 katori (1/4 cup) low-fat yogurt\n* **Snack**: 1 katori (1/2 cup) roasted makhana, 1/2 katori (1/4 cup) fresh fruits\n* **Dinner**: 2 katori (1 cup) quinoa, 1 katori (1/2 cup) mixed vegetables, 1 katori (1/2 cup) grilled tofu or chicken, 1/2 katori (1/4 cup) low-fat yogurt\n\n### Key Foods \ud83c\udf54\nInclude the following **high-fiber**, **high-protein** foods in your diet:\n* **Legumes**: lentils, chickpeas, kidney beans\n* **Whole Grains**: brown rice, quinoa, whole wheat\n* **Nuts and Seeds**: almonds, walnuts, chia seeds, flaxseeds\n* **Fruits and Vegetables**: seasonal fruits and vegetables, leafy greens\n\n### Instructions \ud83d\udcdd\nTo achieve your **Fat Loss** goal, follow these instructions:\n* Eat 5-6 meals per day, spaced out every 2-3 hours\n* Drink at least 8-10 glasses of water per day\n* Incorporate **physical activity** for at least 150 minutes per week\n* Get 7-8 hours of **sleep** per night\n* Monitor your **progress** weekly and adjust your diet and exercise plan accordingly",
+        "Meal Prep": "## Meal Prep \ud83c\udf72\nTo achieve **Fat Loss** on a **Flexitarian** diet, it's essential to focus on whole, nutrient-dense foods. Here's a batch-cooking meal prep guide for a week using standard Indian ingredients:\n\n### Monday to Sunday Breakfast Prep \ud83e\udd50\n* **Oatmeal with Fruits and Nuts**: Cook 1 katori (1/2 cup) of oats with 1 katori of water or low-fat milk. Top with 1/2 katori of mixed fruits (such as bananas, apples, and grapes) and 1 tablespoon of chopped almonds.\n* **Idlis with Sambar and Chutney**: Steam 4-5 idlis made from 1 cup of idli batter. Serve with 1 katori of sambar made from 1/2 cup of toor dal, 1/2 cup of mixed vegetables, and 1 tablespoon of ghee. Accompany with 1 tablespoon of coconut chutney.\n\n### Monday to Sunday Lunch Prep \ud83c\udf5b\n| Day | Meal |\n| --- | --- |\n| Monday | **Brown Rice with Mixed Vegetable Sabzi and Dal**: Cook 1 katori (1/2 cup) of brown rice. Prepare 1 katori of mixed vegetable sabzi using 1/2 cup of mixed vegetables (such as carrots, beans, and peas) and 1 tablespoon of olive oil. Serve with 1 katori of dal made from 1/2 cup of moong dal and 1 tablespoon of ghee. |\n| Tuesday | **Quinoa Salad with Roasted Vegetables**: Cook 1 katori (1/2 cup) of quinoa. Roast 1 katori of mixed vegetables (such as broccoli, cauliflower, and sweet potatoes) with 1 tablespoon of olive oil. Mix with 1 katori of cooked quinoa, 1/2 katori of chopped cucumber, and 1 tablespoon of lemon juice. |\n| Wednesday | **Whole Wheat Roti with Lentil Curry**: Cook 2 whole wheat rotis. Prepare 1 katori of lentil curry using 1/2 cup of cooked lentils, 1/2 cup of mixed vegetables, and 1 tablespoon of olive oil. |\n| Thursday | **Grilled Vegetable and Brown Rice Bowl**: Grill 1 katori of mixed vegetables (such as zucchini, bell peppers, and onions) with 1 tablespoon of olive oil. Serve with 1 katori of cooked brown rice and 1 tablespoon of low-fat yogurt. |\n| Friday | **Chickpea and Spinach Curry with Brown Rice**: Cook 1 katori (1/2 cup) of brown rice. Prepare 1 katori of chickpea and spinach curry using 1/2 cup of cooked chickpeas, 1/2 cup of spinach, and 1 tablespoon of olive oil. |\n| Saturday | **Mixed Vegetable and Bean Wrap**: Cook 1 whole wheat roti. Fill with 1 katori of mixed vegetables (such as cabbage, carrots, and beans), 1/4 katori of cooked kidney beans, and 1 tablespoon of hummus. |\n| Sunday | **Vegetable Biryani with Raita**: Cook 1 katori (1/2 cup) of brown rice. Prepare 1 katori of vegetable biryani using 1/2 cup of mixed vegetables, 1/2 cup of cooked brown rice, and 1 tablespoon of olive oil. Serve with 1 tablespoon of low-fat yogurt and 1/2 katori of chopped cucumber. |\n\n### Monday to Sunday Snack Prep \ud83c\udf7f\n* **Fresh Fruits**: Have 1 katori of mixed fruits (such as oranges, grapes, and berries) as a snack.\n* **Roasted Makhana**: Roast 1 katori of makhana with 1 tablespoon of olive oil and a pinch of salt.\n* **Herbal Tea**: Drink 1 cup of herbal tea, such as peppermint or chamomile, to aid in digestion and relaxation.\n\n### Instructions\n1. **Batch cook** grains like brown rice, quinoa, and whole wheat rotis on the weekend or a day off.\n2. **Prepare** a large batch of dal, sambar, or lentil curry and **freeze** it for up to 3 days.\n3. **Roast** a large batch of mixed vegetables like broccoli, cauliflower, and sweet potatoes, and **store** them in an airtight container for up to 2 days.\n4. **Grill** or **saute** a large batch of mixed vegetables like zucchini, bell peppers, and onions, and **store** them in an airtight container for up to 2 days.\n5. **Assemble** the meals in individual containers or bags for easy **meal prep**.\n6. **Reheat** the meals as needed, and **add** fresh ingredients like fruits, nuts, or yogurt to keep the meals interesting and nutritious.",
+        "Regional": "## Regional South Indian Diet Plan for Fat Loss \ud83c\udf5b\n### Introduction to Flexitarian Diet \ud83e\udd57\nTo achieve **fat loss** on a **flexitarian diet**, it's essential to focus on whole, unprocessed foods, and limit your intake of **added sugars**, **saturated fats**, and **refined carbohydrates**. As a senior Indian clinical nutritionist, I've created a 7-day **South Indian regional diet plan** to help you reach your goal.\n\n## Daily Caloric Intake and Macronutrient Breakdown \ud83d\udcca\nTo promote **fat loss**, your daily caloric intake should be around 1800-2000 calories, with a macronutrient breakdown of:\n* **Protein**: 1.6-2 grams per kilogram of body weight (around 150-170 grams for a 92 kg person)\n* **Fat**: 0.5-1 gram per kilogram of body weight (around 45-60 grams for a 92 kg person)\n* **Carbohydrates**: 2-3 grams per kilogram of body weight (around 180-250 grams for a 92 kg person)\n\n## Sample Meal Plan for a Day \ud83c\udf74\nHere's a sample meal plan for a day:\n| Meal | Food Item | Quantity |\n| --- | --- | --- |\n| Breakfast | **Idlis** (steamed rice cakes) with **sambar** (lentil-based vegetable stew) and **coconut chutney** | 2 idlis, 1 katori sambar, 1/2 katori chutney |\n| Mid-Morning Snack | **Fresh fruits** (such as **banana**, **mango**, or **watermelon**) | 1 medium-sized fruit |\n| Lunch | **Brown rice** with **mixed vegetable sabzi** (stir-fry), **dal** (lentil soup), and **raita** (yogurt side dish) | 1 katori brown rice, 1 katori sabzi, 1 katori dal, 1/2 katori raita |\n| Evening Snack | **Roasted makhana** (fox nuts) with **herbal tea** | 1/2 katori makhana, 1 cup tea |\n| Dinner | **Quinoa** with **vegetable biryani** (mixed rice dish), and **cucumber raita** | 1 katori quinoa, 1 katori biryani, 1/2 katori raita |\n\n## Key Foods to Include and Exclude \ud83c\udf54\ud83d\udc4e\n* **Include**:\n\t+ **Whole grains** like **brown rice**, **quinoa**, and **millets**\n\t+ **Protein-rich foods** like **lentils**, **legumes**, and **low-fat dairy**\n\t+ **Healthy fats** like **nuts**, **seeds**, and **avocado**\n\t+ **A variety of colorful vegetables** like **leafy greens**, **bell peppers**, and **carrots**\n* **Exclude**:\n\t+ **Refined carbohydrates** like **white rice**, **sugary snacks**, and **baked goods**\n\t+ **Saturated fats** like **ghee**, **butter**, and **fried foods**\n\t+ **Added sugars** like **sugary drinks**, **candy**, and **baked goods**\n\n## Instructions to Follow \ud83d\udcdd\n1. **Drink at least 8-10 glasses of water** per day to stay hydrated.\n2. **Eat 5-6 meals** per day, including 3 main meals, 2 snacks, and 1 **pre-workout meal** (if you exercise).\n3. **Incorporate physical activity** like **brisk walking**, **jogging**, or **yoga** for at least 30 minutes per day.\n4. **Get enough sleep** (7-8 hours) per night to help with **weight regulation** and **overall health**.\n5. **Monitor your progress** by tracking your **food intake**, **physical activity**, and **weight loss** regularly."
+      }
+    },
+    "Sujay": {
+      "password_hash": "7067db67a361715e1ba105513d5371d63cf1239bfbe5215a7a9083e221136dc6",
+      "created_at": "2026-03-10T23:21:46.807471",
+      "profile": {
+        "name": "Sujay Rangrej",
+        "age": 20,
+        "gender": "Male",
+        "weight": 50.0,
+        "height": 183.0,
+        "activity": "Moderate",
+        "goal": "Muscle Gain",
+        "diet_type": "Flexitarian"
+      },
+      "history": [
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T23:23:38.135675",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f\nTo achieve **Muscle Gain** as a **Flexitarian**, focus on a balanced diet with adequate **Protein**, **Carbohydrates**, and **Healthy Fats**. Given your weight of 50.0kg, the goal i..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-10T23:30:00.325433",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo support **muscle gain** on a **flexitarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep gui..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-10T23:47:33.611101",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\nTo achieve **Muscle Gain** on a **Flexitarian** diet, we'll focus on a balanced intake of protein, complex carbohydrates, and healthy fats. Here's a 12-week high-level nutrition roa..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-10T23:48:26.770578",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f Flexitarian Diet for Muscle Gain\nTo gain muscle, it's essential to be in a **caloric surplus**, meaning you need to consume more calories than you burn. As a flexitarian, you'll f..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-11T00:29:46.496248",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Flexitarian Diet for Muscle Gain \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbo..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T14:45:49.460190",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f\nTo achieve your **Muscle Gain** goal, we will focus on a **Flexitarian** diet, which is primarily vegetarian with occasional inclusion of lean meats. Here's a 12-week high-level nut..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-11T14:49:04.314950",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f\nTo achieve **Muscle Gain** as a **Flexitarian**, we will focus on a high-calorie, high-protein diet with a balance of authentic Indian foods. Here's a 12-week roadmap:\n\n### Weekly C..."
+        },
+        {
+          "feature": "Macros",
+          "timestamp": "2026-03-12T00:45:35.094001",
+          "inputs": {},
+          "output_preview": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f Flexitarian Diet for Muscle Gain\nTo gain muscle, you need to be in a **caloric surplus**, meaning you need to consume more calories than you burn. As a flexitarian, you will focus..."
+        },
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-13T23:41:33.769837",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Sujay Rangrej's 12-Week Muscle Gain Roadmap\n\n**Current Status:**\n| Category | Value |\n| --- | --- |\n| Age | 20 |\n| Weight | 50.0 kg |\n| Height | 183.0 cm |\n| Activity | Moderate..."
+        }
+      ],
+      "saved_plans": {
+        "Dashboard": "## Dashboard \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Sujay Rangrej's 12-Week Muscle Gain Roadmap\n\n**Current Status:**\n| Category | Value |\n| --- | --- |\n| Age | 20 |\n| Weight | 50.0 kg |\n| Height | 183.0 cm |\n| Activity | Moderate |\n| Diet | Flexitarian |\n| Goal | Muscle Gain |\n\n**Nutritional Requirements:**\n\n* **Caloric Intake:** 2500-2800 calories/day\n* **Macronutrient Breakdown:**\n\t+ **Protein:** 1.6-2.2 grams/kg body weight (80-110 grams)\n\t+ **Carbohydrates:** 2-3 grams/kg body weight (100-150 grams)\n\t+ **Fat:** 0.5-1 gram/kg body weight (25-55 grams)\n\n**12-Week Roadmap:**\n\n### Week 1-4: Building Foundation\n\n* **Dietary Focus:** Increase protein intake, complex carbohydrates, and healthy fats\n* **Meal Frequency:** 5-6 meals/day\n* **Sample Meal Plan:**\n\t+ Breakfast: 2 katori oats with 1 cup milk, 1 banana, and 1 egg\n\t+ Snack: 1 cup mixed nuts and 1 cup dried fruits\n\t+ Lunch: 2 katori brown rice, 1 cup mixed vegetables, and 1 cup lentils\n\t+ Snack: 1 cup Greek yogurt with 1 cup mixed berries\n\t+ Dinner: 2 katori quinoa, 1 cup mixed vegetables, and 1 cup grilled chicken\n\n### Week 5-8: Increasing Caloric Intake\n\n* **Dietary Focus:** Increase caloric intake, protein, and complex carbohydrates\n* **Meal Frequency:** 6-7 meals/day\n* **Sample Meal Plan:**\n\t+ Breakfast: 3 katori whole wheat bread with 2 eggs, 1 cup milk, and 1 cup mixed fruits\n\t+ Snack: 1 cup almond butter with 1 cup whole wheat crackers\n\t+ Lunch: 3 katori brown rice, 1 cup mixed vegetables, and 1 cup grilled chicken\n\t+ Snack: 1 cup Greek yogurt with 1 cup mixed berries and 1 scoop protein powder\n\t+ Dinner: 3 katori quinoa, 1 cup mixed vegetables, and 1 cup grilled salmon\n\n### Week 9-12: Fine-Tuning\n\n* **Dietary Focus:** Fine-tune macronutrient ratios, increase healthy fats\n* **Meal Frequency:** 7-8 meals/day\n* **Sample Meal Plan:**\n\t+ Breakfast: 3 katori whole wheat bread with 2 eggs, 1 cup milk, and 1 cup mixed nuts\n\t+ Snack: 1 cup avocado with 1 cup whole wheat crackers\n\t+ Lunch: 3 katori brown rice, 1 cup mixed vegetables, and 1 cup grilled chicken\n\t+ Snack: 1 cup Greek yogurt with 1 cup mixed berries and 1 scoop protein powder\n\t+ Dinner: 3 katori quinoa, 1 cup mixed vegetables, and 1 cup grilled salmon\n\n**Supplements:**\n\n* **Protein Powder:** 1-2 scoops/day\n* **Multivitamin:** 1 tablet/day\n* **Creatine:** 3-5 grams/day\n\n**Progress Monitoring:**\n\n* **Weight:** weekly\n* **Body Fat Percentage:** every 4 weeks\n* **Muscle Mass:** every 4 weeks\n\n**Instructions:**\n\n1. Consult a doctor or a registered dietitian before starting any new diet or supplement plan.\n2. Monitor your progress regularly and adjust your diet and supplements as needed.\n3. Stay hydrated by drinking at least 8-10 glasses of water/day.\n4. Increase your protein intake gradually to avoid digestive issues.\n5. Eat a variety of foods to ensure you are getting all the necessary nutrients.\n6. Be consistent with your diet and exercise plan to achieve your goal of muscle gain.",
+        "Meal Prep": "## Meal Prep ### \ud83c\udf72\nTo support **muscle gain** on a **flexitarian diet**, it's essential to focus on high-protein, complex carbohydrate, and healthy fat-rich foods. Here's a batch-cooking meal prep guide for a week using standard Indian ingredients:\n\n### Monday to Sunday Breakfast Options\n| Day | Breakfast Item | Quantity | **Macro Breakdown** |\n| --- | --- | --- | --- |\n| Mon | Oatmeal with nuts and fruits | 1 katori (150g) | **300 calories**, 30g protein, 40g carbs, 10g fat |\n| Tue | Poha with vegetables and peanuts | 1 katori (150g) | **350 calories**, 20g protein, 50g carbs, 15g fat |\n| Wed | Idlis with sambar and coconut chutney | 2 idlis (100g) | **250 calories**, 15g protein, 40g carbs, 10g fat |\n| Thu | Veggie and cheese paratha | 1 paratha (100g) | **300 calories**, 20g protein, 40g carbs, 15g fat |\n| Fri | Smoothie bowl with banana, spinach, and almond milk | 1 katori (150g) | **250 calories**, 15g protein, 40g carbs, 10g fat |\n| Sat | Upma with vegetables and nuts | 1 katori (150g) | **300 calories**, 20g protein, 40g carbs, 15g fat |\n| Sun | Veggie and paneer omelette | 1 omelette (100g) | **200 calories**, 20g protein, 10g carbs, 10g fat |\n\n### Lunch and Dinner Options\n* **Monday, Wednesday, Friday**: Brown rice (1 katori, 100g) with mixed vegetable sabzi (1 katori, 100g), dal (1 katori, 100g), and a **protein source** (100g) like tofu, tempeh, or seitan\n* **Tuesday, Thursday**: Quinoa (1 katori, 100g) with mixed lentil soup (1 katori, 100g), mixed vegetable salad (1 katori, 100g), and a **protein source** (100g) like tofu, tempeh, or seitan\n* **Saturday, Sunday**: Whole wheat roti (2 rotis, 100g) with mixed vegetable sabzi (1 katori, 100g), dal (1 katori, 100g), and a **protein source** (100g) like tofu, tempeh, or seitan\n\n### Snack Options\n* **Fresh fruits**: 1 cup (100g) per serving\n* **Nuts and seeds**: 1/4 cup (30g) per serving\n* **Roasted makhana**: 1/2 cup (50g) per serving\n* **Yogurt with honey**: 1 cup (200g) per serving\n\n### **Supplements**\nConsider adding the following **supplements** to your diet:\n* **Protein powder**: 1 scoop (30g) per serving\n* **Creatine**: 1 teaspoon (5g) per serving\n* **Multivitamin**: 1 tablet per day\n\n### Instructions\n1. **Batch cook** brown rice, quinoa, and dal on the weekend for the entire week.\n2. **Prepare** mixed vegetable sabzi and mixed lentil soup in bulk and store them in the refrigerator for up to 3 days.\n3. **Grill or saut\u00e9** tofu, tempeh, or seitan in bulk and store them in the refrigerator for up to 3 days.\n4. **Eat** 5-6 meals per day, spaced out every 2-3 hours.\n5. **Stay hydrated** by drinking at least 8-10 glasses of water per day.\n6. **Adjust** the portion sizes based on your individual **caloric needs**.",
+        "Macros": "## Macros \n### \ud83c\udfcb\ufe0f\u200d\u2640\ufe0f Flexitarian Diet for Muscle Gain\nTo gain muscle, you need to be in a **caloric surplus**, meaning you need to consume more calories than you burn. As a flexitarian, you will focus on plant-based foods with occasional inclusion of animal products.\n\n### Daily Caloric Intake\nYour daily caloric intake should be around 2500-2800 calories to support muscle gain.\n\n### Macronutrient Breakdown\nHere is a breakdown of your daily macronutrient intake:\n| Macronutrient | Quantity |\n| --- | --- |\n| **Protein** | 1.6-2.2 grams/kg body weight (80-110 grams) |\n| **Carbohydrates** | 2-3 grams/kg body weight (100-150 grams) |\n| **Fat** | 0.5-1 gram/kg body weight (25-50 grams) |\n\n### Meal Plan\nHere is a sample meal plan to help you achieve your daily macronutrient goals:\n* **Breakfast**: 2 katori (1 cup) oatmeal with 1 katori (1/2 cup) mixed nuts, 1 katori (1/2 cup) dried fruits, and 1 cup low-fat milk (400 calories, 20g protein, 60g carbs, 15g fat)\n* **Mid-Morning Snack**: 1 katori (1/2 cup) Greek yogurt with 1 katori (1/2 cup) honey and 1/2 katori (1/4 cup) chopped almonds (200 calories, 15g protein, 30g carbs, 10g fat)\n* **Lunch**: 2 katori (1 cup) brown rice, 1 katori (1 cup) mixed vegetable sabzi, 1 katori (1/2 cup) lentil soup, and 1 katori (1/2 cup) grilled chicken or fish (500 calories, 30g protein, 60g carbs, 20g fat)\n* **Evening Snack**: 1 katori (1/2 cup) roasted makhana with 1 katori (1/2 cup) low-fat milk (150 calories, 5g protein, 30g carbs, 5g fat)\n* **Dinner**: 2 katori (1 cup) quinoa, 1 katori (1 cup) mixed vegetable sabzi, 1 katori (1/2 cup) dal, and 1 katori (1/2 cup) grilled chicken or fish (500 calories, 30g protein, 60g carbs, 20g fat)\n* **Before Bedtime Snack**: 1 katori (1/2 cup) casein protein shake with 1 katori (1/2 cup) low-fat milk (150 calories, 15g protein, 10g carbs, 5g fat)\n\n### Instructions\nTo achieve your muscle gain goal:\n1. **Eat every 2-3 hours** to keep your muscles fueled and support growth.\n2. **Include a source of protein** in every meal to support muscle repair and growth.\n3. **Choose complex carbohydrates** like brown rice, quinoa, and whole grains to provide sustained energy.\n4. **Healthy fats** like nuts, seeds, and avocado support hormone production and overall health.\n5. **Stay hydrated** by drinking at least 8-10 glasses of water per day.\n6. **Consult a doctor or a certified nutritionist** to ensure you're meeting your individual nutritional needs.",
+        "Regional": "## North Indian Regional Diet Plan for Muscle Gain \ud83c\udfcb\ufe0f\u200d\u2642\ufe0f\n### Flexitarian Diet for Muscle Gain \ud83e\udd57\nTo gain muscle, it's essential to consume a calorie-surplus diet with a balance of **proteins**, **carbohydrates**, and **healthy fats**. As a flexitarian, you'll focus on plant-based foods with occasional inclusion of animal products.\n\n#### Daily Caloric Intake\nAim for an additional 250-500 calories above your maintenance level to support muscle gain. For a flexitarian diet, focus on whole, unprocessed foods like:\n* **Whole grains**: brown rice (1.5 katori), whole wheat roti (2-3), and oats (1 katori)\n* **Legumes**: chickpeas (1 katori), kidney beans (1 katori), and lentils (1.5 katori)\n* **Nuts and seeds**: almonds (10-12), pumpkin seeds (1/4 katori), and chia seeds (1 tablespoon)\n* **Fruits and vegetables**: seasonal fruits (2-3), leafy greens (1 katori), and other vegetables (1.5 katori)\n\n#### Sample Meal Plan\n| Meal | Food | Quantity |\n| --- | --- | --- |\n| Breakfast | Oatmeal with fruits and nuts | 1 katori oats, 1/2 katori fruits, 10-12 almonds |\n| Mid-Morning Snack | Yogurt with honey and walnuts | 1 katori yogurt, 1 teaspoon honey, 5-6 walnuts |\n| Lunch | Brown rice, mixed vegetable sabzi, and lentil soup | 1.5 katori brown rice, 1.5 katori sabzi, 1 katori lentil soup |\n| Evening Snack | Roasted chickpeas and fruit | 1 katori chickpeas, 1 medium fruit |\n| Dinner | Whole wheat roti, mixed dal, and saut\u00e9ed vegetables | 2-3 whole wheat roti, 1.5 katori mixed dal, 1.5 katori saut\u00e9ed vegetables |\n\n#### Additional Tips\n* Drink plenty of water throughout the day (at least 8-10 glasses)\n* Incorporate **strength training exercises** to support muscle gain\n* Consider adding **plant-based protein supplements** like pea or brown rice protein powder to your diet\n* Eat frequent, balanced meals to maintain a positive nitrogen balance\n\n#### Instructions\n1. **Start with a calorie-surplus diet**: consume an additional 250-500 calories above your maintenance level\n2. **Focus on whole, unprocessed foods**: include a variety of whole grains, legumes, nuts, seeds, fruits, and vegetables in your diet\n3. **Incorporate strength training exercises**: aim for 3-4 sessions per week, targeting all major muscle groups\n4. **Monitor progress**: track your weight, body fat percentage, and muscle mass regularly to adjust your diet and exercise plan as needed"
+      }
+    },
+    "test": {
+      "password_hash": "9477f53fad48c7c88fd4046426f427aa0711270188cc917d83cbff24011d2c06",
+      "created_at": "2026-03-12T00:28:06.871205",
+      "profile": {
+        "name": "Testing",
+        "age": 20,
+        "gender": "Male",
+        "weight": 55.0,
+        "height": 170.0,
+        "activity": "Moderate",
+        "goal": "Fat Loss",
+        "diet_type": "Vegetarian"
+      },
+      "history": [
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T00:28:31.488128",
+          "inputs": {},
+          "output_preview": "## Dashboard ### \ud83e\udd57\nTo achieve **Fat Loss** as a vegetarian, we will focus on a calorie-controlled diet with a balance of **Protein**, **Healthy Fats**, and **Complex Carbohydrates**. Here is a 12-week..."
+        },
+        {
+          "feature": "Regional",
+          "timestamp": "2026-03-12T00:29:36.580174",
+          "inputs": {},
+          "output_preview": "## North Indian Regional Diet Plan for Fat Loss \ud83e\udd57\n### Vegetarian Diet \ud83c\udf31\n\nTo achieve **fat loss**, it's essential to focus on a calorie-controlled diet with a balance of **protein**, **healthy fats**, ..."
+        },
+        {
+          "feature": "Meal Prep",
+          "timestamp": "2026-03-12T00:33:21.489320",
+          "inputs": {},
+          "output_preview": "## Meal Prep ### \ud83c\udf72\nTo achieve **fat loss** as a vegetarian, it's essential to focus on nutrient-dense foods, portion control, and regular meal timings. Here's a **batch-cooking meal prep guide** for a..."
+        }
+      ],
+      "saved_plans": {
+        "Dashboard": "## Dashboard ### \ud83e\udd57\nTo achieve **Fat Loss** as a vegetarian, we will focus on a calorie-controlled diet with a balance of **Protein**, **Healthy Fats**, and **Complex Carbohydrates**. Here is a 12-week high-level nutrition roadmap:\n\n### Weekly Caloric Intake\nThe daily caloric intake will be approximately 1500-1700 calories, with a deficit of 500 calories to promote **Fat Loss**.\n\n### Meal Distribution\n* **Breakfast**: 2 katori (300 calories)\n* **Mid-Morning Snack**: 1 katori (150 calories)\n* **Lunch**: 2.5 katori (400 calories)\n* **Evening Snack**: 1 katori (150 calories)\n* **Dinner**: 2.5 katori (400 calories)\n\n### Macronutrient Distribution\n| Week | Protein | Fat | Carbohydrates |\n| --- | --- | --- | --- |\n| 1-4 | 1.2-1.5 cups (cooked **Dal** or **Legumes**) | 2-3 tablespoons (**Ghee** or **Nuts**) | 2-3 cups (**Brown Rice**, **Quinoa**, or **Whole Wheat Roti**) |\n| 5-8 | 1.5-2 cups (cooked **Dal** or **Legumes**) | 2-3 tablespoons (**Ghee** or **Nuts**) | 2-3 cups (**Brown Rice**, **Quinoa**, or **Whole Wheat Roti**) |\n| 9-12 | 2 cups (cooked **Dal** or **Legumes**) | 2-3 tablespoons (**Ghee** or **Nuts**) | 2 cups (**Brown Rice**, **Quinoa**, or **Whole Wheat Roti**) |\n\n### Food Recommendations\n* **Protein Sources**:\n\t+ **Dal** (1 katori, cooked)\n\t+ **Legumes** (1 katori, cooked)\n\t+ **Tofu** (1/2 katori, cooked)\n\t+ **Paneer** (1/2 katori, cooked)\n* **Healthy Fats**:\n\t+ **Nuts** (1/4 katori, almonds or walnuts)\n\t+ **Seeds** (1/4 katori, chia or flax)\n\t+ **Ghee** (1 tablespoon)\n* **Complex Carbohydrates**:\n\t+ **Brown Rice** (1 katori, cooked)\n\t+ **Quinoa** (1 katori, cooked)\n\t+ **Whole Wheat Roti** (1 roti)\n\t+ **Vegetables** (2-3 katori, mixed)\n\n### Instructions\n1. **Drink plenty of water** (at least 8-10 glasses a day)\n2. **Incorporate physical activity** (at least 30 minutes of moderate-intensity exercise, 5 days a week)\n3. **Eat frequent, balanced meals** (every 3-4 hours)\n4. **Monitor progress** (track weight, measurements, and progress photos every 2 weeks)\n5. **Adjust the diet plan** as needed, based on progress and feedback.",
+        "Regional": "## North Indian Regional Diet Plan for Fat Loss \ud83e\udd57\n### Vegetarian Diet \ud83c\udf31\n\nTo achieve **fat loss**, it's essential to focus on a calorie-controlled diet with a balance of **protein**, **healthy fats**, and **complex carbohydrates**. Here's a sample 7-day North Indian regional diet plan:\n\n### Monday\n* **Breakfast**: Oatmeal with fruits and nuts (1 katori oatmeal, 1/2 katori mixed fruits, 1 tablespoon chopped almonds)\n* **Lunch**: Brown rice (1 katori), mixed vegetable sabzi (1 katori), and dal (1 katori)\n* **Snack**: Roasted makhana (1/2 katori) with a cup of green tea\n* **Dinner**: Quinoa (1 katori), palak paneer (1 katori), and mixed vegetable raita (1 katori)\n\n### Tuesday\n* **Breakfast**: Whole wheat paratha (1 medium) with vegetable sabzi (1 katori) and a glass of low-fat milk\n* **Lunch**: Mixed lentil soup (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Carrot and celery sticks (1/2 katori) with hummus (2 tablespoons)\n* **Dinner**: Grilled tofu (1 katori), mixed vegetable biryani (1 katori), and cucumber raita (1 katori)\n\n### Wednesday\n* **Breakfast**: Idlis (2 medium) with coconut chutney (2 tablespoons) and a glass of low-fat milk\n* **Lunch**: Chickpea and spinach curry (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Rice cakes (2 medium) with almond butter (2 tablespoons)\n* **Dinner**: Grilled portobello mushrooms (1 katori), mixed vegetable quinoa (1 katori), and low-fat yogurt (1 katori)\n\n### Thursday\n* **Breakfast**: Whole wheat bread (2 slices) with avocado spread (2 tablespoons) and a glass of low-fat milk\n* **Lunch**: Lentil and vegetable stew (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Cucumber and tomato slices (1/2 katori) with low-fat yogurt (1/2 katori)\n* **Dinner**: Grilled tofu (1 katori), mixed vegetable and brown rice bowl (1 katori), and a glass of low-fat milk\n\n### Friday\n* **Breakfast**: Poha (1 katori) with mixed fruits (1/2 katori) and a glass of low-fat milk\n* **Lunch**: Mixed vegetable and bean curry (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Rice crackers (2 medium) with hummus (2 tablespoons)\n* **Dinner**: Grilled portobello mushrooms (1 katori), mixed vegetable quinoa (1 katori), and low-fat yogurt (1 katori)\n\n### Saturday\n* **Breakfast**: Whole wheat paratha (1 medium) with vegetable sabzi (1 katori) and a glass of low-fat milk\n* **Lunch**: Chickpea and spinach curry (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Carrot and celery sticks (1/2 katori) with almond butter (2 tablespoons)\n* **Dinner**: Grilled tofu (1 katori), mixed vegetable and brown rice bowl (1 katori), and a glass of low-fat milk\n\n### Sunday\n* **Breakfast**: Idlis (2 medium) with coconut chutney (2 tablespoons) and a glass of low-fat milk\n* **Lunch**: Mixed lentil soup (1 katori), brown rice (1 katori), and mixed vegetable salad (1 katori)\n* **Snack**: Cucumber and tomato slices (1/2 katori) with low-fat yogurt (1/2 katori)\n* **Dinner**: Grilled portobello mushrooms (1 katori), mixed vegetable quinoa (1 katori), and low-fat yogurt (1 katori)\n\n**Instructions:**\n* Drink at least 8-10 glasses of water per day\n* Include **physical activity** for at least 30 minutes per day, such as brisk walking, jogging, or yoga\n* Eat **frequent meals** to keep your metabolism boosted\n* Avoid **processed foods**, **sugary drinks**, and **fried foods**\n* Get at least 7-8 hours of **sleep** per night to help with weight regulation\n* Monitor your **weight** and **measurements** regularly to track your progress",
+        "Meal Prep": "## Meal Prep ### \ud83c\udf72\nTo achieve **fat loss** as a vegetarian, it's essential to focus on nutrient-dense foods, portion control, and regular meal timings. Here's a **batch-cooking meal prep guide** for a week, using standard Indian ingredients.\n\n### Monday to Sunday Meal Plan\n* **Breakfast**: Overnight oats with fruits and nuts (1 katori rolled oats, 1/2 katori milk, 1/2 katori yogurt, 1/2 katori mixed berries, 1 tablespoon chopped almonds)\n* **Lunch**: Brown rice (1 katori), mixed vegetable sabzi (1 katori), and dal (1 katori)\n* **Snack**: Roasted makhana (1 katori) with herbal tea\n* **Dinner**: Quinoa (1 katori), vegetable stir-fry (1 katori), and raita (1/2 katori)\n\n### Batch-Cooking Schedule\n| Day | Breakfast | Lunch | Snack | Dinner |\n| --- | --- | --- | --- | --- |\n| Monday | Prepare overnight oats | Cook brown rice, dal, and mixed vegetable sabzi | Roast makhana | Cook quinoa and vegetable stir-fry |\n| Tuesday | - | - | - | - |\n| Wednesday | Prepare overnight oats | Cook brown rice, dal, and mixed vegetable sabzi | Roast makhana | Cook quinoa and vegetable stir-fry |\n| Thursday | - | - | - | - |\n| Friday | Prepare overnight oats | Cook brown rice, dal, and mixed vegetable sabzi | Roast makhana | Cook quinoa and vegetable stir-fry |\n| Saturday | - | - | - | - |\n| Sunday | Prepare overnight oats | Cook brown rice, dal, and mixed vegetable sabzi | Roast makhana | Cook quinoa and vegetable stir-fry |\n\n### Key **Foods** to Focus On\n* **Protein-rich foods**: dal, beans, lentils, and nuts\n* **Complex carbohydrates**: brown rice, quinoa, whole wheat\n* **Healthy fats**: nuts, seeds, avocado\n* **Fiber-rich foods**: fruits, vegetables, whole grains\n\n### **Tips** for Successful Meal Prep\n* Cook in bulk to save time and reduce food waste\n* Use **portion control** to maintain a calorie deficit\n* Incorporate a variety of **colors** on your plate to ensure a range of nutrients\n* Stay **hydrated** by drinking plenty of water throughout the day\n\n### **Instructions**\n1. Start by preparing overnight oats on Sunday evening for Monday's breakfast.\n2. Cook brown rice, dal, and mixed vegetable sabzi in bulk on Monday, Wednesday, and Friday.\n3. Roast makhana in bulk on Monday, Wednesday, and Friday for snacks.\n4. Cook quinoa and vegetable stir-fry in bulk on Monday, Wednesday, and Friday for dinner.\n5. **Reheat** and **reassemble** meals as needed, and **adjust** portion sizes based on individual calorie needs."
+      }
+    },
+    "Swayam": {
+      "password_hash": "914e899eaedb33e99c4ed958d84d2001e6614b8a92629700677ea2853a3f2b69",
+      "created_at": "2026-03-12T14:13:20.229326",
+      "profile": {
+        "name": "Swayam",
+        "age": 21,
+        "gender": "Male",
+        "weight": 83.0,
+        "height": 183.0,
+        "activity": "Moderate",
+        "goal": "Fat Loss",
+        "diet_type": "Non-Vegetarian"
+      },
+      "history": [
+        {
+          "feature": "Dashboard",
+          "timestamp": "2026-03-12T14:13:44.460261",
+          "inputs": {},
+          "output_preview": "## Dashboard \ud83d\udcca\nTo achieve **Fat Loss**, we will focus on a calorie-controlled diet with a balance of **Protein**, **Healthy Fats**, and **Complex Carbohydrates**. Here is a 12-week high-level nutritio..."
+        }
+      ],
+      "saved_plans": {
+        "Dashboard": "## Dashboard \ud83d\udcca\nTo achieve **Fat Loss**, we will focus on a calorie-controlled diet with a balance of **Protein**, **Healthy Fats**, and **Complex Carbohydrates**. Here is a 12-week high-level nutrition roadmap:\n\n### Weekly Caloric Intake \ud83c\udf74\nThe daily caloric intake will be approximately 1900-2000 calories, with a **Caloric Deficit** of 500 calories to promote fat loss.\n\n### Macronutrient Breakdown \ud83d\udcc8\nThe macronutrient breakdown will be:\n| Macronutrient | Daily Intake |\n| --- | --- |\n| **Protein** | 1.6-2 grams/kg body weight (132-166 grams) |\n| **Fat** | 0.5-1 gram/kg body weight (41-83 grams) |\n| **Carbohydrates** | 2-3 grams/kg body weight (166-249 grams) |\n\n### Meal Plan \ud83c\udf5c\nThe meal plan will include:\n* **Breakfast**: 2 katori (1 cup) **Oatmeal** with 1 katori (1/2 cup) **Mixed Nuts** and 1 cup **Low-Fat Milk**\n* **Mid-Morning Snack**: 1 katori (1/2 cup) **Fresh Fruits** and 1 katori (1/4 cup) **Roasted Chana**\n* **Lunch**: 2 katori (1 cup) **Brown Rice** with 1 katori (1/2 cup) **Mixed Vegetables** and 1 katori (1/2 cup) **Grilled Chicken**\n* **Evening Snack**: 1 katori (1/2 cup) **Greek Yogurt** with 1 katori (1/2 cup) **Honey** and 1 katori (1/4 cup) **Almonds**\n* **Dinner**: 2 katori (1 cup) **Quinoa** with 1 katori (1/2 cup) **Mixed Vegetables** and 1 katori (1/2 cup) **Grilled Fish**\n\n### Key Foods \ud83c\udf54\n* **Protein Sources**: Grilled Chicken, Grilled Fish, Eggs, Low-Fat Milk, Greek Yogurt\n* **Healthy Fats**: Mixed Nuts, Almonds, Olive Oil\n* **Complex Carbohydrates**: Brown Rice, Quinoa, Oatmeal, Whole Wheat Bread\n\n### Instructions \ud83d\udcdd\nTo follow this roadmap, please:\n* Eat 5-6 meals per day, spaced out every 2-3 hours\n* Drink at least 8-10 glasses of water per day\n* Incorporate **Physical Activity** for at least 150 minutes per week\n* Monitor your **Weight** and **Body Fat Percentage** every week\n* Adjust your **Caloric Intake** and **Macronutrient Breakdown** as needed to achieve your **Fat Loss** goal."
+      }
+    }
+  }
+}
