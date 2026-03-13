@@ -25,10 +25,10 @@ export const fetchAPI = async (endpoint: string, options: RequestInit = {}) => {
     return response.json();
 };
 
-export const runFeature = async (featureId: string, prompt?: string, extraInputs?: any) => {
+export const runFeature = async (featureId: string, prompt?: string, extraInputs?: any, gourmet: boolean = false) => {
     const data = await fetchAPI(`/features/${featureId}`, {
         method: "POST",
-        body: JSON.stringify({ prompt, extra_inputs: extraInputs }),
+        body: JSON.stringify({ prompt, extra_inputs: extraInputs, gourmet }),
     });
     return data.markdown;
 };
@@ -39,4 +39,8 @@ export const runVisionFeature = async (imageBase64: string) => {
         body: JSON.stringify({ image_base64: imageBase64 }),
     });
     return data.markdown;
+};
+export const getSavedPlans = async () => {
+    const data = await fetchAPI('/user/saved_plans');
+    return data.plans;
 };

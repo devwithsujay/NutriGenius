@@ -6,10 +6,11 @@ import {
   ChefHat, TrendingUp, FlaskConical, Camera, Settings2,
   HeartPulse, Map, User, LogOut, Loader2, ChevronDown,
   CheckCircle2, Download, LayoutDashboard, Flame, Eye, EyeOff,
-  Moon, Sun, Menu, X
+  Moon, Sun, Menu, X, Book, Home
 } from 'lucide-react';
 import { fetchAPI, runFeature, runVisionFeature } from './api';
 import { supabase, isSupabaseConfigured } from './supabase';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import './index.css';
 
 // --- Types ---
@@ -77,21 +78,22 @@ const SIDEBAR_GROUPS = [
   { label: 'Health & Adapt', icon: <HeartPulse size={14} />, items: ['supplements', 'health', 'adapt'] },
 ];
 
-const FEATURE_META: Record<string, { name: string; icon: React.ReactNode }> = {
-  dashboard: { name: 'Dashboard', icon: <Activity /> },
-  workout: { name: 'Workout', icon: <Dumbbell /> },
-  macros: { name: 'Macros', icon: <Target /> },
-  recomp: { name: 'Recomp', icon: <Utensils /> },
-  supplements: { name: 'Supplements', icon: <Pill /> },
-  fasting: { name: 'Fasting', icon: <Clock /> },
-  mealprep: { name: 'Meal Prep', icon: <ChefHat /> },
-  progress: { name: 'Progress', icon: <TrendingUp /> },
-  lab: { name: 'Lab Report', icon: <FlaskConical /> },
-  vision: { name: 'Food Photo', icon: <Camera /> },
-  adapt: { name: 'Adapt Plan', icon: <Settings2 /> },
-  health: { name: 'Health Plan', icon: <HeartPulse /> },
-  regional: { name: 'Regional Diet', icon: <Map /> },
-  profile: { name: 'My Profile', icon: <User /> },
+const FEATURE_META: Record<string, { name: string; icon: any; group?: string }> = {
+  dashboard: { name: 'Home Dash', icon: Home, group: 'Overview' },
+  saved_plans: { name: 'Saved Library', icon: Book, group: 'Overview' },
+  profile: { name: 'My Profile', icon: User, group: 'Overview' },
+  workout: { name: 'Workout', icon: Dumbbell, group: 'Fitness' },
+  macros: { name: 'Macros', icon: Target, group: 'Nutrition' },
+  recomp: { name: 'Recomp', icon: Utensils, group: 'Nutrition' },
+  supplements: { name: 'Supplements', icon: Pill, group: 'Health & Adapt' },
+  fasting: { name: 'Fasting', icon: Clock, group: 'Fitness' },
+  mealprep: { name: 'Meal Prep', icon: ChefHat, group: 'Nutrition' },
+  progress: { name: 'Progress', icon: TrendingUp, group: 'Track & Analyze' },
+  lab: { name: 'Lab Report', icon: FlaskConical, group: 'Track & Analyze' },
+  vision: { name: 'Food Photo', icon: Camera, group: 'Track & Analyze' },
+  adapt: { name: 'Adapt Plan', icon: Settings2, group: 'Health & Adapt' },
+  health: { name: 'Health Plan', icon: HeartPulse, group: 'Health & Adapt' },
+  regional: { name: 'Regional Diet', icon: Map, group: 'Nutrition' },
 };
 
 // --- Stat Card Component ---
@@ -102,6 +104,40 @@ const StatCard = ({ label, value, sub, color }: { label: string; value: string; 
     <p className="stat-sub">{sub}</p>
   </div>
 );
+
+// --- Macro Chart ---
+const MacroBreakdown = ({ calories, goal }: { calories: number; goal: string }) => {
+  // Simple formula based on goal
+  let pP = 30, cP = 40, fP = 30; // protein, carbs, fats percentage
+  if (goal === 'Fat Loss') { pP = 40; cP = 30; fP = 30; }
+  else if (goal === 'Muscle Gain') { pP = 30; cP = 50; fP = 20; }
+  
+  const data = [
+    { name: 'Protein', value: Math.round((calories * (pP/100)) / 4), color: '#FF416C' },
+    { name: 'Carbs', value: Math.round((calories * (cP/100)) / 4), color: '#FFD700' },
+    { name: 'Fats', value: Math.round((calories * (fP/100)) / 9), color: '#00F2FE' },
+  ];
+
+  return (
+    <div className="card shadow-lg" style={{ padding: '24px', flex: 1, minHeight: '300px' }}>
+      <h3 style={{ marginBottom: '16px', fontSize: '1rem', fontWeight: 600 }}>Daily Nutrient Target (grams)</h3>
+      <div style={{ height: '220px', width: '100%' }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie data={data} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+              {data.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
+            </Pie>
+            <Tooltip 
+              contentStyle={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'var(--text-primary)' }}
+              itemStyle={{ color: 'var(--text-primary)' }}
+            />
+            <Legend verticalAlign="bottom" height={36}/>
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+};
 
 // --- AUTH ---
 const AuthScreen = ({ theme, onToggleTheme, onSignupSuccess }: {
@@ -416,6 +452,8 @@ function App() {
     activity: 'Moderate', goal: 'Fat Loss', diet_type: 'Vegetarian'
   });
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [gourmetMode, setGourmetMode] = useState(false);
+  const [savedPlans, setSavedPlans] = useState<any[]>([]);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
     Overview: true, Nutrition: true, Fitness: true, 'Track & Analyze': false, 'Health & Adapt': false, Settings: false
   });
@@ -426,6 +464,10 @@ function App() {
     document.documentElement.classList.toggle('light-mode', theme === 'light');
     localStorage.setItem('theme', theme);
   }, [theme]);
+  const loadSavedPlans = async () => {
+    try { setSavedPlans(await fetchAPI('/user/saved_plans')); } catch (e) { console.error(e); }
+  };
+
   const handleToggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
 
   // Mobile sidebar
@@ -453,6 +495,7 @@ function App() {
       setSession(session);
       if (session) {
          setUsername(session.user?.user_metadata?.full_name || session.user?.email?.split('@')[0] || 'User');
+         loadSavedPlans();
       } else {
          setUsername(null);
          // Don't reset profile to null, keep it as default object
@@ -483,8 +526,9 @@ function App() {
     try {
       await fetchAPI('/user/profile', { method: 'POST', body: JSON.stringify(profile) });
       alert('✅ Profile saved!');
+      loadSavedPlans(); // Refresh in case of backend changes 
       setShowOnboarding(false);
-      setActiveFeature('dashboard');
+      if (activeFeature === 'profile') setActiveFeature('dashboard');
     } catch (e: any) { alert('Error: ' + (e as Error).message); }
   };
 
@@ -513,7 +557,7 @@ function App() {
           setFLoading(fid, false);
         }; return;
       }
-      setFOutput(fid, cleanMarkdown(await runFeature(fid, inputText)));
+      setFOutput(fid, cleanMarkdown(await runFeature(fid, inputText, null, gourmetMode)));
     } catch (e: any) { setFOutput(fid, `🚨 Error: ${e.message}`); }
     finally { if (fid !== 'vision') setFLoading(fid, false); }
   };
@@ -671,15 +715,15 @@ function App() {
                 <ChevronDown size={12} style={{ transform: openGroups[group.label] ? 'rotate(0deg)' : 'rotate(-90deg)', transition: '0.2s' }} />
               </div>
               {openGroups[group.label] && group.items.map(id => {
-                const meta = FEATURE_META[id];
+                const IconComp = FEATURE_META[id]?.icon || Activity;
                 return (
                   <div
                     key={id}
-                    className={`nav-item ${activeFeature === id ? 'active' : ''}`}
-                    onClick={() => { setActiveFeature(id); closeSidebar(); }}
+                    className={`sidebar-item ${activeFeature === id ? 'active' : ''}`}
+                    onClick={() => { setActiveFeature(id); if (window.innerWidth < 1024) setSidebarOpen(false); }}
                   >
-                    <span className="nav-icon">{meta.icon}</span>
-                    <span>{meta.name}</span>
+                    <IconComp size={16} />
+                    <span className="sidebar-label">{FEATURE_META[id]?.name || id}</span>
                     {featureLoading[id] && <Loader2 size={11} className="animate-spin" style={{ marginLeft: 'auto', color: 'var(--accent)' }} />}
                     {featureOutputs[id] && !featureLoading[id] && (
                       <span style={{ marginLeft: 'auto', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} title="Plan ready" />
@@ -708,6 +752,15 @@ function App() {
             <h2 className="topbar-title">{FEATURE_META[activeFeature]?.name}</h2>
           </div>
           <div className="user-profile">
+            <button 
+              className={`btn ${gourmetMode ? 'btn-primary' : ''}`} 
+              onClick={() => setGourmetMode(!gourmetMode)}
+              style={{ padding: '8px 16px', display: 'flex', gap: '8px', alignItems: 'center', background: gourmetMode ? 'linear-gradient(135deg, #FFD700, #FFA500)' : 'var(--bg-secondary)', border: 'none', color: '#000' }}
+              title="Use Llama 3.1 405B for richer, more premium plans"
+            >
+              <Flame size={15} color={gourmetMode ? "white" : "var(--accent)"} />
+              <span style={{ fontWeight: 700, fontSize: '0.75rem', color: gourmetMode ? "white" : "var(--text-primary)" }}>{gourmetMode ? 'GOURMET ON' : 'GOURMET MODE'}</span>
+            </button>
             <button className="username-chip" onClick={() => setActiveFeature('profile')} title="Go to My Profile">
               <User size={15} /> {username}
             </button>
@@ -732,14 +785,42 @@ function App() {
         )}
 
         {/* ── Dashboard Stat Cards ── */}
-        {activeFeature === 'dashboard' && profileComplete && (
+          {activeFeature === 'saved_plans' ? (
+            <div className="feature-view">
+              <div className="card shadow-lg" style={{ padding: '24px' }}>
+                <h3 style={{ marginBottom: '20px', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <Book className="text-primary" /> My Saved Library
+                </h3>
+                {savedPlans.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-secondary)' }}>
+                    <Book size={48} style={{ opacity: 0.2, marginBottom: '16px' }} />
+                    <p>No plans saved yet. Generate a plan to see it here!</p>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {savedPlans.map((plan: any) => (
+                      <div key={plan.id} className="card p-4 hover-lift" style={{ cursor: 'pointer', border: '1px solid var(--border-color)' }} onClick={() => {
+                        setFOutput(plan.feature.toLowerCase(), plan.content);
+                        setActiveFeature(plan.feature.toLowerCase());
+                      }}>
+                         <div style={{ fontWeight: 700, marginBottom: '4px' }}>{plan.feature}</div>
+                         <div style={{ fontSize: '0.75rem', opacity: 0.6 }}>{new Date(plan.created_at).toLocaleDateString()}</div>
+                         <div style={{ fontSize: '0.8rem', opacity: 0.8, marginTop: '8px', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
+                            {plan.content.replace(/[#*`]/g, '').slice(0, 100)}...
+                         </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : activeFeature === 'dashboard' && profileComplete && (
           <div className="stats-grid">
             <StatCard label="BMI" value={`${bmi}`} sub={bmiCategory(bmi)} color={bmiColor} />
             <StatCard label="Daily Calories" value={`${tdee} kcal`} sub="Total Daily Energy Expenditure" color="var(--accent)" />
             <StatCard label="Fat Loss Target" value={`${Math.round(tdee * 0.8)} kcal`} sub="20% deficit recommended" />
             <StatCard label="Muscle Gain Target" value={`${Math.round(tdee * 1.1)} kcal`} sub="10% surplus recommended" />
-            <StatCard label="Weight" value={`${profile?.weight} kg`} sub="Current body weight" />
-            <StatCard label="Height" value={`${profile?.height} cm`} sub="Current height" />
+            <MacroBreakdown calories={tdee} goal={profile?.goal || 'Maintenance'} />
           </div>
         )}
 
