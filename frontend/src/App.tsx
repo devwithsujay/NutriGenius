@@ -9,7 +9,7 @@ import {
   Moon, Sun, Menu, X
 } from 'lucide-react';
 import { fetchAPI, runFeature, runVisionFeature } from './api';
-import { supabase } from './supabase';
+import { supabase, isSupabaseConfigured } from './supabase';
 import './index.css';
 
 // --- Types ---
@@ -604,6 +604,26 @@ function App() {
       default: return null;
     }
   };
+
+  if (!isSupabaseConfigured) {
+      return (
+          <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)', padding: '2rem', textAlign: 'center' }}>
+              <div style={{ background: '#f87171', color: 'white', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+                  <X size={40} />
+              </div>
+              <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: '2rem', marginBottom: '1rem' }}>Missing Configuration</h1>
+              <p style={{ color: 'var(--text-secondary)', maxWidth: '500px', lineHeight: 1.6 }}>
+                  If you are seeing this on Vercel, it means your frontend crashed because the Supabase Environment Variables are missing.
+              </p>
+              <div style={{ background: 'var(--bg-secondary)', padding: '1.5rem', borderRadius: '12px', marginTop: '2rem', textAlign: 'left', width: '100%', maxWidth: '500px' }}>
+                  <p style={{ fontWeight: 600, marginBottom: '0.5rem' }}>Please add these variables to your Vercel project settings:</p>
+                  <code style={{ display: 'block', background: 'var(--bg-primary)', padding: '0.8rem', borderRadius: '6px', marginBottom: '0.5rem' }}>VITE_SUPABASE_URL</code>
+                  <code style={{ display: 'block', background: 'var(--bg-primary)', padding: '0.8rem', borderRadius: '6px' }}>VITE_SUPABASE_ANON_KEY</code>
+                  <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>After saving, trigger a new deployment in Vercel.</p>
+              </div>
+          </div>
+      );
+  }
 
   if (!authInitialized) {
       return (

@@ -64,3 +64,16 @@ This happens when you click "Sign up with Google" but haven't fully configured G
 7. Click **Save**.
 
 *Note:* To make Google Login actually work for real users in production, you cannot use the dummy IDs. You will need to create a real OAuth application in the [Google Cloud Console](https://console.cloud.google.com/), generate a real Client ID and Secret, and paste those into Supabase. You will also need to paste your Supabase Callback URL into Google Cloud.
+
+### Error: Blank Blue Screen after deploying to Vercel
+If you deploy to Vercel and only see a blank background, **your frontend crashed because it is missing the Supabase Environment Variables.**
+Vite requires variables that start with `VITE_` to be present at *build time*.
+
+**To fix this:**
+1. Go to your project on the [Vercel Dashboard](https://vercel.com/dashboard).
+2. Go to **Settings** -> **Environment Variables**.
+3. You must add these exact two variables (copy the values from your local `frontend/.env.local` file):
+   *   `VITE_SUPABASE_URL`
+   *   `VITE_SUPABASE_ANON_KEY`
+4. After saving them, go to the **Deployments** tab.
+5. Click the three dots next to your latest deployment and select **Redeploy**. (It must rebuild from scratch to inject those variables into the React code).
