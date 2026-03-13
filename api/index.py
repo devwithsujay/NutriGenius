@@ -25,7 +25,8 @@ app.add_middleware(
 )
 
 API_BASE = "https://integrate.api.nvidia.com/v1"
-TEXT_MODEL = "meta/llama-3.1-8b-instruct"
+TEXT_MODEL_BASIC = "meta/llama-3.1-8b-instruct"
+TEXT_MODEL_PRO = "meta/llama-3.1-405b-instruct"
 VISION_MODEL = "meta/llama-3.2-11b-vision-instruct"
 
 # ==========================================
@@ -57,6 +58,7 @@ class ProfileData(BaseModel):
 class FeatureRequest(BaseModel):
     prompt: Optional[str] = None
     extra_inputs: Optional[Dict[str, Any]] = None
+    gourmet: bool = False
 
 class VisionRequest(BaseModel):
     image_base64: str
@@ -117,6 +119,14 @@ def get_history(user: Any = Depends(get_current_user)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/user/saved_plans")
+def get_saved_plans(user: Any = Depends(get_current_user)):
+    try:
+        res = supabase.table("saved_plans").select("*").eq("user_id", user.id).order("created_at", desc=True).execute()
+        return {"plans": res.data if res.data else []}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 # ==========================================
 # 5. NVIDIA NIM API Integration & Helpers
 # ==========================================
@@ -125,7 +135,7 @@ NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 def get_client():
     return OpenAI(base_url=API_BASE, api_key=NVIDIA_API_KEY)
 
-def llm_call(prompt, system=None, max_tokens=1400, temp=0.4):
+def llm_call(prompt, system=None, max_tokens=1400, temp=0.4, use_pro=False):
     if not NVIDIA_API_KEY or NVIDIA_API_KEY.startswith("nvapi-..."): 
         raise HTTPException(status_code=400, detail="NVIDIA NIM API Key not set correctly.")
     
@@ -133,8 +143,9 @@ def llm_call(prompt, system=None, max_tokens=1400, temp=0.4):
         system = "You are a senior Indian clinical nutritionist. Always use authentic Indian foods. Use katori/cup measurements."
     try:
         client = get_client()
+        model = TEXT_MODEL_PRO if use_pro else TEXT_MODEL_BASIC
         res = client.chat.completions.create(
-            model=TEXT_MODEL,
+            model=model,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}],
             temperature=temp,
             max_tokens=max_tokens
@@ -158,11 +169,11 @@ def build_context(user):
     except:
         return ""
 
-def generate_and_save(user, feature, prompt, extra_inputs=None):
+def generate_and_save(user, feature, prompt, extra_inputs=None, use_pro=False):
     ctx = build_context(user)
     full_prompt = f"{ctx} {prompt}\n\nFormat output strictly as markdown:\n## {feature}\n### [add relevant emoji here]\n[Include tables where applicable]\n[Use bullet points]\n[Use bold for key terms]\nBe specific with quantities (katori/cup)."
     
-    out = llm_call(full_prompt)
+    out = llm_call(full_prompt, use_pro=use_pro)
     
     try:
         # Save plan using an upsert (or delete old and insert new). 
@@ -248,7 +259,7 @@ def run_feature(feature_id: str, req: FeatureRequest, user: Any = Depends(get_cu
         raise HTTPException(status_code=404, detail="Feature not found")
 
     feature_name, prompt_template = feature_map[feature_id]
-    return generate_and_save(user, feature_name, prompt_template, req.extra_inputs)
+    return generate_and_save(user, feature_name, prompt_template, req.extra_inputs, req.gourmet)
 
 # ==========================================
 # 7. Math Endpoints
