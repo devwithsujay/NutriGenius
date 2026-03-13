@@ -1,0 +1,87 @@
+# NutriGenius — How to Run
+
+## Prerequisites (First Time Only)
+```powershell
+# 1. Install Python dependencies
+cd backend
+pip install -r requirements.txt
+
+# 2. Install frontend dependencies
+cd ../frontend
+npm install
+```
+
+---
+
+## ▶️ Mode 1 — Local Development (Recommended for coding)
+
+Open **two terminals** and run each command in its own terminal:
+
+**Terminal 1 — Backend:**
+```powershell
+cd "GEN AI Project/backend"
+uvicorn main:app --reload
+```
+Backend runs at → `http://localhost:8000`
+
+**Terminal 2 — Frontend:**
+```powershell
+cd "GEN AI Project/frontend"
+npm run dev
+```
+Frontend runs at → `http://localhost:5173`~
+
+> Open `http://localhost:5173` in your browser. ✅
+
+---
+
+## ▶️ Mode 2 — Single Port (Production / Cloudflare sharing)
+
+**Step 1:** Build the frontend once (or after any UI changes):
+```powershell
+cd "GEN AI Project/frontend"
+npm run build
+```
+
+**Step 2:** Run only the backend:
+```powershell
+cd "GEN AI Project/backend"
+uvicorn main:app --reload
+```
+
+> Open `http://localhost:8000` in your browser. ✅
+> The backend serves the React app + handles all API calls from one port.
+
+---
+
+## 🌐 Mode 3 — Share Publicly via Cloudflare
+
+First complete **Mode 2** above, then in a **third terminal**:
+```powershell
+cloudflared tunnel --url http://localhost:8000
+```
+
+Look for this in the output:
+```
+INF | Your quick Tunnel is available at: https://xxxx-xxxx.trycloudflare.com |
+```
+
+Share that URL with anyone — it works from any device on the internet. ✅
+
+> ⚠️ The URL changes every time you restart cloudflared.
+> ⚠️ Keep uvicorn running while the tunnel is active.
+
+---
+
+## ⛔ Stopping the App
+Press `Ctrl + C` in each terminal to stop the servers.
+
+---
+
+## 🔄 Restarting After Changes
+
+| Changed | Action needed |
+|---|---|
+| Backend ([main.py](file:///c:/Users/sujay/.gemini/antigravity/playground/GEN%20AI%20Project/backend/main.py)) | uvicorn auto-reloads (no action) |
+| Frontend code | Vite auto-reloads in dev mode |
+| Frontend code (Mode 2) | Run `npm run build` again |
