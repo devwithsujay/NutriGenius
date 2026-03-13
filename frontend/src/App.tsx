@@ -411,7 +411,10 @@ function App() {
   const [authInitialized, setAuthInitialized] = useState(false);
   
   const [activeFeature, setActiveFeature] = useState('dashboard');
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<Profile>({
+    name: '', age: 30, gender: 'Male', weight: 70, height: 170,
+    activity: 'Moderate', goal: 'Fat Loss', diet_type: 'Vegetarian'
+  });
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
     Overview: true, Nutrition: true, Fitness: true, 'Track & Analyze': false, 'Health & Adapt': false, Settings: false
@@ -452,7 +455,7 @@ function App() {
          setUsername(session.user?.user_metadata?.full_name || session.user?.email?.split('@')[0] || 'User');
       } else {
          setUsername(null);
-         setProfile(null);
+         // Don't reset profile to null, keep it as default object
       }
     });
 
@@ -476,7 +479,7 @@ function App() {
   };
 
   const saveProfile = async (e: React.FormEvent) => {
-    e.preventDefault(); if (!profile) return;
+    e.preventDefault();
     try {
       await fetchAPI('/user/profile', { method: 'POST', body: JSON.stringify(profile) });
       alert('✅ Profile saved!');

@@ -1,4 +1,11 @@
--- Run this entire script in the Supabase SQL Editor
+-- Run this entire script in the Supabase SQL Editor to COMPLETELY RESET your database.
+
+-- 0. DROP EVERYTHING FIRST (Reset)
+drop trigger if exists on_auth_user_created on auth.users;
+drop function if exists public.handle_new_user();
+drop table if exists public.saved_plans cascade;
+drop table if exists public.history cascade;
+drop table if exists public.profiles cascade;
 
 -- 1. Create Profiles Table (extends the built-in auth.users)
 create table public.profiles (

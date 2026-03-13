@@ -37,6 +37,8 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 if not SUPABASE_URL or not SUPABASE_KEY:
     raise RuntimeError("SUPABASE_URL and SUPABASE_KEY environment variables are missed.")
 
+# supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+# We initialized this globally, but we'll check it in the endpoints.
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # ==========================================
@@ -92,10 +94,19 @@ def get_profile(user: Any = Depends(get_current_user)):
 def update_profile(profile_data: ProfileData, user: Any = Depends(get_current_user)):
     try:
         profile_dict = profile_data.model_dump()
+        profile_dict["id"] = user.id
         profile_dict["updated_at"] = datetime.datetime.now().isoformat()
-        res = supabase.table("profiles").update(profile_dict).eq("id", user.id).execute()
-        return {"message": "Profile updated successfully"}
+        
+        # Use upsert to handle both first-time creation and updates
+        res = supabase.table("profiles").upsert(profile_dict).execute()
+        
+        if not res.data:
+            # This often happens if RLS blocks the update and we are using an Anon Key
+            print(f"DEBUG: Profile update returned no data for user {user.id}. Check RLS or use Service Key.")
+            
+        return {"message": "Profile updated successfully", "data": res.data[0] if res.data else {}}
     except Exception as e:
+         print(f"ERROR updating profile: {str(e)}")
          raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/user/history")
