@@ -9,6 +9,7 @@ import {
   Moon, Sun, Menu, X
 } from 'lucide-react';
 import { fetchAPI, runFeature, runVisionFeature } from './api';
+import { supabase } from './supabase';
 import './index.css';
 
 // --- Types ---
@@ -61,15 +62,10 @@ const LoadingState = () => {
 // --- Markdown cleaner ---
 const cleanMarkdown = (text: string) =>
   text
-    // 1. Unwrap bold/italic wrapped headings: **### Title** → ### Title
     .replace(/\*{1,2}(#{1,6}\s*)/g, '$1')
-    // 2. Ensure space after # at start of line: ###Title → ### Title
     .replace(/^(#{1,6})([^#\s\n])/gm, '$1 $2')
-    // 3. Normalize multiple spaces after # to single: ###   Title → ### Title
     .replace(/^(#{1,6})\s+/gm, (_, h) => h + ' ')
-    // 4. Strip any remaining stray ### mid-line (not parsed as headings)
     .replace(/(?<=[^\n])[ \t]*#{1,6}[ \t]+/g, ' ')
-    // 5. Clean up any leftover # at start that slipped through
     .replace(/^#{7,}/gm, '');
 
 // --- Sidebar Groups ---
@@ -108,14 +104,14 @@ const StatCard = ({ label, value, sub, color }: { label: string; value: string; 
 );
 
 // --- AUTH ---
-const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
-  onLogin: (token: string, username: string, isNew: boolean) => void;
+const AuthScreen = ({ theme, onToggleTheme, onSignupSuccess }: {
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
+  onSignupSuccess: () => void;
 }) => {
   const [tab, setTab] = useState<'login' | 'register'>('login');
   // Step 1: credentials
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -128,57 +124,85 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
     activity: 'Moderate', goal: 'Fat Loss', diet_type: 'Vegetarian'
   });
   const [error, setError] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
   const setPD = (key: string, val: string | number) => setProfileData(p => ({ ...p, [key]: val }));
-  const switchTab = (t: 'login' | 'register') => { setTab(t); setStep(1); setError(''); };
+  const switchTab = (t: 'login' | 'register') => { setTab(t); setStep(1); setError(''); setSuccessMsg(''); };
 
   const handleStep1 = (e: React.FormEvent) => {
-    e.preventDefault(); setError('');
+    e.preventDefault(); setError(''); setSuccessMsg('');
     if (password !== confirmPassword) { setError("Passwords don't match"); return; }
+    if (password.length < 6) { setError("Password must be at least 6 characters"); return; }
     setStep(2);
   };
 
   const handleLoginSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); setError(''); setLoading(true);
+    e.preventDefault(); setError(''); setLoading(true); setSuccessMsg('');
     try {
-      const r = await fetchAPI('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
-      sessionStorage.setItem('token', r.token); sessionStorage.setItem('username', r.username);
-      onLogin(r.token, r.username, false);
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      // App.tsx uses onAuthStateChange, so it will auto-redirect
     } catch (err: any) { setError(err.message || 'An error occurred'); }
     finally { setLoading(false); }
   };
 
-  const handleRegisterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); setError(''); setLoading(true);
+  const handleGoogleLogin = async () => {
     try {
-      await fetchAPI('/auth/register', { method: 'POST', body: JSON.stringify({ username, password }) });
-      const loginRes = await fetchAPI('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
-      sessionStorage.setItem('token', loginRes.token); sessionStorage.setItem('username', loginRes.username);
-      try {
-        await fetchAPI('/user/profile', {
-          method: 'POST',
-          body: JSON.stringify({
-            name: profileData.name, age: Number(profileData.age), gender: profileData.gender,
-            weight: Number(profileData.weight), height: Number(profileData.height),
-            activity: profileData.activity, goal: profileData.goal, diet_type: profileData.diet_type,
-          }),
-        });
-      } catch { /* profile save failure is non-fatal */ }
-      onLogin(loginRes.token, loginRes.username, true);
+      setLoading(true);
+      const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
+      if (error) throw error;
+    } catch (err: any) {
+      setError(err.message || 'Failed to login with Google.');
+      setLoading(false);
+    }
+  };
+
+  const handleRegisterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); setError(''); setLoading(true); setSuccessMsg('');
+    try {
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email, password,
+        options: {
+           data: { full_name: profileData.name }
+        }
+      });
+      if (signUpError) throw signUpError;
+      
+      // If the user requires email confirmation
+      if (data.user && data.user.identities && data.user.identities.length === 0) {
+          setSuccessMsg("Account exists. Please log in.");
+          setTab('login');
+      } else if (data.session) {
+          // They are logged in immediately. Let's save profile to DB via our API.
+          // Wait for custom API headers to catch the new token
+          await new Promise(r => setTimeout(r, 1000));
+          try {
+            await fetchAPI('/user/profile', {
+              method: 'POST',
+              body: JSON.stringify({
+                name: profileData.name, age: Number(profileData.age), gender: profileData.gender,
+                weight: Number(profileData.weight), height: Number(profileData.height),
+                activity: profileData.activity, goal: profileData.goal, diet_type: profileData.diet_type,
+              }),
+            });
+          } catch { /* if it fails, user can update later */ }
+          onSignupSuccess();
+      } else {
+          setSuccessMsg("Registration successful! Please check your email and verify your account to log in.");
+          setTab('login');
+      }
     } catch (err: any) { setError(err.message || 'An error occurred'); setStep(1); }
     finally { setLoading(false); }
   };
 
   return (
     <div className="auth-page">
-      {/* Theme toggle – top right corner */}
       <button className="theme-toggle" onClick={onToggleTheme} title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
         {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
       </button>
 
-      {/* ── LEFT PANEL: Branding ── */}
       <div className="auth-left">
         <div className="auth-brand">
           <div className="auth-brand-logo">NG</div>
@@ -195,7 +219,6 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL: Form ── */}
       <div className="auth-right">
         <div className="auth-box">
           <div className="auth-header">
@@ -207,7 +230,6 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
             </p>
           </div>
 
-          {/* Tabs — only show on step 1 */}
           {step === 1 && (
             <div className="auth-tabs">
               <div className={`auth-tab ${tab === 'login' ? 'active' : ''}`} onClick={() => switchTab('login')}>Login</div>
@@ -215,10 +237,12 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
             </div>
           )}
 
+          {successMsg && <div style={{ background: '#10b98120', color: '#10b981', padding: '1rem', borderRadius: '8px', marginBottom: '1rem', fontSize: '0.9rem' }}>{successMsg}</div>}
+
           {/* ── LOGIN ── */}
           {tab === 'login' && (
             <form onSubmit={handleLoginSubmit} autoComplete="off">
-              <div className="form-group"><label>Username</label><input value={username} onChange={e => setUsername(e.target.value)} required /></div>
+              <div className="form-group"><label>Email Address</label><input type="email" value={email} onChange={e => setEmail(e.target.value)} required /></div>
               <div className="form-group">
                 <label>Password</label>
                 <div style={{ position: 'relative' }}>
@@ -229,8 +253,25 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
                 </div>
               </div>
               {error && <div className="form-error">{error}</div>}
+              
               <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }} disabled={loading}>
                 {loading ? <Loader2 className="animate-spin" /> : 'LOGIN'}
+              </button>
+
+              <div style={{ margin: '1.5rem 0', display: 'flex', alignItems: 'center', color: 'var(--border)' }}>
+                 <div style={{ flex: 1, height: '1px', background: 'var(--border)' }}></div>
+                 <span style={{ margin: '0 10px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>OR</span>
+                 <div style={{ flex: 1, height: '1px', background: 'var(--border)' }}></div>
+              </div>
+
+              <button type="button" className="btn" style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '8px', alignItems: 'center' }} onClick={handleGoogleLogin} disabled={loading}>
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
               </button>
             </form>
           )}
@@ -238,11 +279,11 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
           {/* ── REGISTER STEP 1: Credentials ── */}
           {tab === 'register' && step === 1 && (
             <form onSubmit={handleStep1} autoComplete="off">
-              <div className="form-group"><label>Username</label><input value={username} onChange={e => setUsername(e.target.value)} required /></div>
+              <div className="form-group"><label>Email Address</label><input type="email" value={email} onChange={e => setEmail(e.target.value)} required /></div>
               <div className="form-group">
                 <label>Password</label>
                 <div style={{ position: 'relative' }}>
-                  <input type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} style={{ paddingRight: '42px' }} required />
+                  <input type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} style={{ paddingRight: '42px' }} required minLength={6} />
                   <button type="button" onClick={() => setShowPassword(p => !p)} style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '4px', display: 'flex' }}>
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -251,7 +292,7 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
               <div className="form-group">
                 <label>Confirm Password</label>
                 <div style={{ position: 'relative' }}>
-                  <input type={showConfirm ? 'text' : 'password'} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} style={{ paddingRight: '42px' }} required />
+                  <input type={showConfirm ? 'text' : 'password'} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} style={{ paddingRight: '42px' }} required minLength={6} />
                   <button type="button" onClick={() => setShowConfirm(p => !p)} style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '4px', display: 'flex' }}>
                     {showConfirm ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -260,6 +301,22 @@ const AuthScreen = ({ onLogin, theme, onToggleTheme }: {
               {error && <div className="form-error">{error}</div>}
               <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
                 CONTINUE →
+              </button>
+
+              <div style={{ margin: '1.5rem 0', display: 'flex', alignItems: 'center', color: 'var(--border)' }}>
+                 <div style={{ flex: 1, height: '1px', background: 'var(--border)' }}></div>
+                 <span style={{ margin: '0 10px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>OR</span>
+                 <div style={{ flex: 1, height: '1px', background: 'var(--border)' }}></div>
+              </div>
+
+              <button type="button" className="btn" style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '8px', alignItems: 'center' }} onClick={handleGoogleLogin} disabled={loading}>
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Sign up with Google
               </button>
             </form>
           )}
@@ -349,11 +406,10 @@ const OnboardingBanner = ({ onDismiss, onGoProfile }: { onDismiss: () => void, o
 
 // --- MAIN APP ---
 function App() {
-  // Clear old localStorage tokens (migrated to sessionStorage)
-  if (localStorage.getItem('token')) localStorage.clear();
-
-  const [token, setToken] = useState<string | null>(sessionStorage.getItem('token'));
-  const [username, setUsername] = useState<string | null>(sessionStorage.getItem('username'));
+  const [session, setSession] = useState<any>(null);
+  const [username, setUsername] = useState<string | null>(null);
+  const [authInitialized, setAuthInitialized] = useState(false);
+  
   const [activeFeature, setActiveFeature] = useState('dashboard');
   const [profile, setProfile] = useState<Profile | null>(null);
   const [showOnboarding, setShowOnboarding] = useState(false);
@@ -381,11 +437,42 @@ function App() {
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  useEffect(() => { if (token) loadProfile(); }, [token]);
+  useEffect(() => {
+    // Initial fetch of session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUsername(session?.user?.user_metadata?.full_name || session?.user?.email?.split('@')[0] || 'User');
+      setAuthInitialized(true);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (session) {
+         setUsername(session.user?.user_metadata?.full_name || session.user?.email?.split('@')[0] || 'User');
+      } else {
+         setUsername(null);
+         setProfile(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => { if (session) loadProfile(); }, [session]);
 
   const loadProfile = async () => {
-    try { setProfile(await fetchAPI('/user/profile')); }
-    catch { handleLogout(); }
+    try { 
+        const p = await fetchAPI('/user/profile');
+        if (p && Object.keys(p).length > 0) {
+            setProfile(p);
+        } else {
+            // No profile found in DB
+            setShowOnboarding(true);
+            setActiveFeature('profile');
+        }
+    }
+    catch (e) { console.error("Could not load profile", e); }
   };
 
   const saveProfile = async (e: React.FormEvent) => {
@@ -394,11 +481,12 @@ function App() {
       await fetchAPI('/user/profile', { method: 'POST', body: JSON.stringify(profile) });
       alert('✅ Profile saved!');
       setShowOnboarding(false);
+      setActiveFeature('dashboard');
     } catch (e: any) { alert('Error: ' + (e as Error).message); }
   };
 
-  const handleLogout = () => {
-    sessionStorage.clear(); setToken(null); setUsername(null);
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
   };
 
   const inputText = featureInputs[activeFeature] ?? '';
@@ -482,31 +570,30 @@ function App() {
           <input type="file" accept="image/*" onChange={e => { if (e.target.files?.[0]) setImageFile(e.target.files[0]); }} /></div>
       );
       case 'profile':
-        if (!profile) return null;
         return (
           <form className="card" onSubmit={saveProfile}>
             <div className="profile-grid">
               <div>
-                <label>Full Name</label><input value={profile.name} onChange={e => setProfile({ ...profile, name: e.target.value })} />
-                <label>Age</label><input type="number" value={profile.age} onChange={e => setProfile({ ...profile, age: +e.target.value })} />
+                <label>Full Name</label><input value={profile?.name || ''} onChange={e => setProfile(p => ({ ...(p as Profile), name: e.target.value }))} required />
+                <label>Age</label><input type="number" value={profile?.age || ''} onChange={e => setProfile(p => ({ ...(p as Profile), age: +e.target.value }))} required />
                 <label>Gender</label>
-                <select value={profile.gender} onChange={e => setProfile({ ...profile, gender: e.target.value })}>
+                <select value={profile?.gender || 'Male'} onChange={e => setProfile(p => ({ ...(p as Profile), gender: e.target.value }))}>
                   <option>Male</option><option>Female</option><option>Other</option>
                 </select>
-                <label>Weight (kg)</label><input type="number" value={profile.weight} onChange={e => setProfile({ ...profile, weight: +e.target.value })} />
-                <label>Height (cm)</label><input type="number" value={profile.height} onChange={e => setProfile({ ...profile, height: +e.target.value })} />
+                <label>Weight (kg)</label><input type="number" value={profile?.weight || ''} onChange={e => setProfile(p => ({ ...(p as Profile), weight: +e.target.value }))} required />
+                <label>Height (cm)</label><input type="number" value={profile?.height || ''} onChange={e => setProfile(p => ({ ...(p as Profile), height: +e.target.value }))} required />
               </div>
               <div>
                 <label>Activity Level</label>
-                <select value={profile.activity} onChange={e => setProfile({ ...profile, activity: e.target.value })}>
+                <select value={profile?.activity || 'Moderate'} onChange={e => setProfile(p => ({ ...(p as Profile), activity: e.target.value }))}>
                   {['Sedentary', 'Light', 'Moderate', 'Active', 'Very Active'].map(o => <option key={o}>{o}</option>)}
                 </select>
                 <label>Goal</label>
-                <select value={profile.goal} onChange={e => setProfile({ ...profile, goal: e.target.value })}>
+                <select value={profile?.goal || 'Fat Loss'} onChange={e => setProfile(p => ({ ...(p as Profile), goal: e.target.value }))}>
                   {['Fat Loss', 'Muscle Gain', 'Maintenance', 'General Health'].map(o => <option key={o}>{o}</option>)}
                 </select>
                 <label>Diet Type</label>
-                <select value={profile.diet_type} onChange={e => setProfile({ ...profile, diet_type: e.target.value })}>
+                <select value={profile?.diet_type || 'Vegetarian'} onChange={e => setProfile(p => ({ ...(p as Profile), diet_type: e.target.value }))}>
                   {['Vegetarian', 'Non-Vegetarian', 'Flexitarian', 'Eggetarian', 'Vegan'].map(o => <option key={o}>{o}</option>)}
                 </select>
               </div>
@@ -518,7 +605,20 @@ function App() {
     }
   };
 
-  if (!token) return <AuthScreen onLogin={(t, u, isNew) => { setToken(t); setUsername(u); if (isNew) { setActiveFeature('profile'); setShowOnboarding(true); } }} theme={theme} onToggleTheme={handleToggleTheme} />;
+  if (!authInitialized) {
+      return (
+          <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)' }}>
+              <Loader2 className="animate-spin" size={32} style={{ color: 'var(--accent)' }}/>
+          </div>
+      );
+  }
+
+  if (!session) {
+      return <AuthScreen theme={theme} onToggleTheme={handleToggleTheme} onSignupSuccess={() => {
+        setShowOnboarding(true);
+        setActiveFeature('profile');
+      }} />;
+  }
 
   const bmiColor = bmi < 18.5 ? '#60a5fa' : bmi < 25 ? 'var(--accent)' : bmi < 30 ? '#f59e0b' : '#f87171';
 
@@ -533,7 +633,7 @@ function App() {
           <h1>NUTRIGENIUS</h1>
           {profileComplete && (
             <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '4px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-              👋 {profile?.name?.split(' ')[0]}
+              👋 {username}
             </p>
           )}
         </div>
@@ -625,7 +725,7 @@ function App() {
           <div className="feature-input-section card">
             {renderInput()}
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-              <button className="btn btn-light-green" onClick={handleRunFeature} disabled={currentLoading}>
+              <button className="btn btn-light-green" onClick={handleRunFeature} disabled={currentLoading || !profileComplete}>
                 {currentLoading
                   ? <><Loader2 className="animate-spin" /> {['progress', 'lab', 'vision'].includes(activeFeature) ? 'ANALYZING...' : 'GENERATING...'}</>
                   : ['progress', 'lab', 'vision'].includes(activeFeature) ? 'ANALYZE' : 'GENERATE AI PLAN'}
@@ -636,6 +736,7 @@ function App() {
                 </button>
               )}
             </div>
+            {!profileComplete && <p style={{ color: 'var(--danger)', fontSize: '0.8rem', marginTop: '10px' }}>⚠️ Complete your profile first to generate plans.</p>}
           </div>
         )}
 
