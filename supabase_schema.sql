@@ -3,7 +3,7 @@
 -- 1. Create Profiles Table (extends the built-in auth.users)
 create table public.profiles (
   id uuid references auth.users on delete cascade not null primary key,
-  username text unique,
+  username text, -- Removed "unique" to prevent Google Sign-In crashes if users have same name
   name text default '',
   age integer default 30,
   gender text default 'Male',
@@ -25,9 +25,13 @@ create policy "Users can insert their own profile." on profiles for insert with 
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, username, name)
-  values (new.id, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'full_name');
+  insert into public.profiles (id, name)
+  values (new.id, coalesce(new.raw_user_meta_data->>'full_name', 'User'));
   return new;
+exception
+  when others then
+    -- Failsafe: if profile creation fails, still allow the user to sign up
+    return new;
 end;
 $$ language plpgsql security definer;
 
