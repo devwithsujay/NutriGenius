@@ -1,14 +1,14 @@
-import os, json, hashlib, datetime, base64, mimetypes
+import os, json, datetime, mimetypes
 from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 from openai import OpenAI
 from dotenv import load_dotenv
+from supabase import create_client, Client
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
 # ==========================================
@@ -24,41 +24,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_FILE = "nutrigenius_data.json"
 API_BASE = "https://integrate.api.nvidia.com/v1"
 TEXT_MODEL = "meta/llama-3.1-8b-instruct"
-#meta/llama-3.3-70b-instruct
 VISION_MODEL = "meta/llama-3.2-11b-vision-instruct"
 
 # ==========================================
-# 2. Storage Layer (Shared with Gradio logic)
+# 2. Supabase Client & DB Initialization
 # ==========================================
-def load_data():
-    if not os.path.exists(DATA_FILE):
-        return {"users": {}}
-    try:
-        with open(DATA_FILE, "r") as f:
-            return json.load(f)
-    except:
-        return {"users": {}}
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-def save_data(data):
-    try:
-        with open(DATA_FILE, "w") as f:
-            json.dump(data, f, indent=2)
-    except Exception as e:
-        print(f"File lock error: {str(e)}")
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise RuntimeError("SUPABASE_URL and SUPABASE_KEY environment variables are missed.")
 
-def hash_password(pw):
-    return hashlib.sha256((pw + "somesalt123").encode()).hexdigest()
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # ==========================================
-# 3. Pydantic Models for API Requests/Responses
+# 3. Pydantic Models for API Requests
 # ==========================================
-class UserCredentials(BaseModel):
-    username: str
-    password: str
-
 class ProfileData(BaseModel):
     name: str = ""
     age: int = 30
@@ -76,78 +59,56 @@ class FeatureRequest(BaseModel):
 class VisionRequest(BaseModel):
     image_base64: str
 
-# Dependency to get current user based on a simple Authorization header 
-# (For a real MVP, use JWT. Keeping simple as per previous architecture)
+# Dependency to get current user based on Supabase JWT token
 def get_current_user(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="Invalid authorization header")
-    username = authorization.split(" ")[1] # Very simple token = username
-    data = load_data()
-    if username not in data["users"]:
-         raise HTTPException(status_code=401, detail="User not found")
-    return username
+    token = authorization.split(" ")[1]
+    
+    try:
+        user_response = supabase.auth.get_user(token)
+        if not user_response.user:
+             raise HTTPException(status_code=401, detail="User not found or token expired")
+        return user_response.user
+    except Exception as e:
+        raise HTTPException(status_code=401, detail=f"Authentication error: {str(e)}")
 
 # ==========================================
-# 4. Auth & Profile Endpoints
+# 4. Profile Endpoints
 # ==========================================
-@app.post("/api/auth/register")
-def register(creds: UserCredentials):
-    username = creds.username.strip()
-    if not username or not creds.password:
-        raise HTTPException(status_code=400, detail="Username and password required.")
-    
-    data = load_data()
-    if username in data["users"]:
-        raise HTTPException(status_code=400, detail="Username already exists.")
-    
-    data["users"][username] = {
-        "password_hash": hash_password(creds.password),
-        "created_at": datetime.datetime.now().isoformat(),
-        "profile": {},
-        "history": [],
-        "saved_plans": {}
-    }
-    save_data(data)
-    return {"message": "Registered successfully!", "username": username}
-
-@app.post("/api/auth/login")
-def login(creds: UserCredentials):
-    username = creds.username.strip()
-    data = load_data()
-    user = data["users"].get(username)
-    if not user:
-        print(f"Login failed: User {username} not found")
-        raise HTTPException(status_code=401, detail="Invalid credentials.")
-    if user["password_hash"] != hash_password(creds.password):
-        print(f"Login failed: Incorrect password for user {username}")
-        raise HTTPException(status_code=401, detail="Invalid credentials.")
-    print(f"Login successful for user: {username}")
-    return {"token": username, "username": username}
+# Note: Registration and Login are handled entirely by Supabase JS on the frontend!
 
 @app.get("/api/user/profile")
-def get_profile(username: str = Depends(get_current_user)):
-    data = load_data()
-    user_data = data["users"][username]
-    profile = user_data.get("profile", {})
-    return profile
+def get_profile(user: Any = Depends(get_current_user)):
+    try:
+        res = supabase.table("profiles").select("*").eq("id", user.id).execute()
+        if res.data and len(res.data) > 0:
+            return res.data[0]
+        return {}
+    except Exception as e:
+         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/user/profile")
-def update_profile(profile_data: ProfileData, username: str = Depends(get_current_user)):
-    data = load_data()
-    profile_dict = profile_data.model_dump()
-    data["users"][username]["profile"] = profile_dict
-    save_data(data)
-    return {"message": "Profile updated successfully"}
+def update_profile(profile_data: ProfileData, user: Any = Depends(get_current_user)):
+    try:
+        profile_dict = profile_data.model_dump()
+        profile_dict["updated_at"] = datetime.datetime.now().isoformat()
+        res = supabase.table("profiles").update(profile_dict).eq("id", user.id).execute()
+        return {"message": "Profile updated successfully"}
+    except Exception as e:
+         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/user/history")
-def get_history(username: str = Depends(get_current_user)):
-    data = load_data()
-    return {"history": data["users"][username].get("history", [])}
+def get_history(user: Any = Depends(get_current_user)):
+    try:
+        res = supabase.table("history").select("*").eq("user_id", user.id).order("created_at", desc=True).limit(50).execute()
+        return {"history": res.data if res.data else []}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # ==========================================
 # 5. NVIDIA NIM API Integration & Helpers
 # ==========================================
-# API Key from environment variable
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY") 
 
 def get_client():
@@ -155,10 +116,10 @@ def get_client():
 
 def llm_call(prompt, system=None, max_tokens=1400, temp=0.4):
     if not NVIDIA_API_KEY or NVIDIA_API_KEY.startswith("nvapi-..."): 
-        raise HTTPException(status_code=400, detail="NVIDIA NIM API Key not set correctly in backend/main.py.")
+        raise HTTPException(status_code=400, detail="NVIDIA NIM API Key not set correctly.")
     
     if not system:
-        system = "You are a senior Indian clinical nutritionist with 15 years of experience. Always use authentic Indian foods. End with specific instructions. Use katori/cup measurements familiar to Indian households."
+        system = "You are a senior Indian clinical nutritionist. Always use authentic Indian foods. Use katori/cup measurements."
     try:
         client = get_client()
         res = client.chat.completions.create(
@@ -171,36 +132,47 @@ def llm_call(prompt, system=None, max_tokens=1400, temp=0.4):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"API Error: {str(e)}")
 
-def build_context(username):
-    data = load_data()
-    user_info = data["users"].get(username, {})
-    p = user_info.get("profile", {})
-    name = p.get('name', 'User')
-    age = p.get('age', 'Not specified')
-    diet = p.get('diet_type', 'Vegetarian')
-    g = p.get('goal', 'General Health')
-    w = p.get('weight', 70)
-    h = p.get('height', 170)
-    act = p.get('activity', 'Moderate')
-    return f"User Profile - Name: {name}, Age: {age}, Weight: {w}kg, Height: {h}cm, Activity: {act}, Goal: {g}, Diet: {diet}. "
+def build_context(user):
+    try:
+        res = supabase.table("profiles").select("*").eq("id", user.id).execute()
+        p = res.data[0] if res.data else {}
+        name = p.get('name', 'User')
+        age = p.get('age', 30)
+        diet = p.get('diet_type', 'Vegetarian')
+        g = p.get('goal', 'General Health')
+        w = p.get('weight', 70)
+        h = p.get('height', 170)
+        act = p.get('activity', 'Moderate')
+        return f"User Profile - Name: {name}, Age: {age}, Weight: {w}kg, Height: {h}cm, Activity: {act}, Goal: {g}, Diet: {diet}. "
+    except:
+        return ""
 
-def generate_and_save(username, feature, prompt, extra_inputs=None):
-    data = load_data()
-    ctx = build_context(username)
+def generate_and_save(user, feature, prompt, extra_inputs=None):
+    ctx = build_context(user)
     full_prompt = f"{ctx} {prompt}\n\nFormat output strictly as markdown:\n## {feature}\n### [add relevant emoji here]\n[Include tables where applicable]\n[Use bullet points]\n[Use bold for key terms]\nBe specific with quantities (katori/cup)."
     
     out = llm_call(full_prompt)
     
-    # Save plan and history
-    if username in data["users"]:
-        data["users"][username].setdefault("saved_plans", {})[feature] = out
-        data["users"][username].setdefault("history", []).append({
+    try:
+        # Save plan using an upsert (or delete old and insert new). 
+        # For simplicity, delete if exists then insert.
+        supabase.table("saved_plans").delete().eq("user_id", user.id).eq("feature", feature).execute()
+        
+        supabase.table("saved_plans").insert({
+            "user_id": user.id,
             "feature": feature,
-            "timestamp": datetime.datetime.now().isoformat(),
+            "content": out
+        }).execute()
+        
+        # Save history
+        supabase.table("history").insert({
+            "user_id": user.id,
+            "feature": feature,
             "inputs": extra_inputs or {},
             "output_preview": out[:200] + "..."
-        })
-        save_data(data)
+        }).execute()
+    except Exception as e:
+        print(f"Failed to save data to supabase: {str(e)}")
         
     return {"markdown": out}
 
@@ -208,15 +180,12 @@ def generate_and_save(username, feature, prompt, extra_inputs=None):
 # 6. AI Feature Endpoints
 # ==========================================
 
-# NOTE: vision route MUST come before the /{feature_id} wildcard!
 @app.post("/api/features/vision/food_photo")
-def run_vision_feature(req: VisionRequest, username: str = Depends(get_current_user)):
-    data = load_data()
-
+def run_vision_feature(req: VisionRequest, user: Any = Depends(get_current_user)):
     if not NVIDIA_API_KEY or NVIDIA_API_KEY.startswith("nvapi-..."):
-        raise HTTPException(status_code=400, detail="NVIDIA NIM API Key not set correctly in backend/main.py.")
+        raise HTTPException(status_code=400, detail="NVIDIA NIM API Key not set correctly.")
 
-    ctx = build_context(username)
+    ctx = build_context(user)
     prompt = f"{ctx} Identify this food, guess its calories/macros. Suggest healthier authentic Indian alternatives if needed. Use Markdown formatting with '## Food Photo Analysis'."
     system = "You are an expert Indian nutritionist and food analyst."
 
@@ -235,22 +204,20 @@ def run_vision_feature(req: VisionRequest, username: str = Depends(get_current_u
             max_tokens=900
         )
         out = res.choices[0].message.content
-        if username in data["users"]:
-            data["users"][username].setdefault("saved_plans", {})["Food Photo"] = out
-            data["users"][username].setdefault("history", []).append({
-                "feature": "Food Photo",
-                "timestamp": datetime.datetime.now().isoformat(),
-                "inputs": {},
-                "output_preview": out[:200] + "..."
-            })
-            save_data(data)
+        
+        try:
+            supabase.table("saved_plans").delete().eq("user_id", user.id).eq("feature", "Food Photo").execute()
+            supabase.table("saved_plans").insert({"user_id": user.id, "feature": "Food Photo", "content": out}).execute()
+            supabase.table("history").insert({"user_id": user.id, "feature": "Food Photo", "inputs": {}, "output_preview": out[:200] + "..."}).execute()
+        except Exception as e:
+            print(f"Failed to save to supabase: {e}")
+            
         return {"markdown": out}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Vision API Error: {str(e)}")
 
-
 @app.post("/api/features/{feature_id}")
-def run_feature(feature_id: str, req: FeatureRequest, username: str = Depends(get_current_user)):
+def run_feature(feature_id: str, req: FeatureRequest, user: Any = Depends(get_current_user)):
     feature_map = {
         "dashboard": ("Dashboard", "Create a 12-week high-level nutrition roadmap."),
         "workout": ("Workout", f"Provide pre/post workout Indian meal options for {req.prompt} training"),
@@ -270,27 +237,20 @@ def run_feature(feature_id: str, req: FeatureRequest, username: str = Depends(ge
         raise HTTPException(status_code=404, detail="Feature not found")
 
     feature_name, prompt_template = feature_map[feature_id]
-    return generate_and_save(username, feature_name, prompt_template, req.extra_inputs)
-
+    return generate_and_save(user, feature_name, prompt_template, req.extra_inputs)
 
 # ==========================================
 # 7. Math Endpoints
 # ==========================================
 @app.get("/api/utils/metrics")
 def get_metrics(weight: float, height: float, age: int, gender: str, activity: str):
-    # BMI
     try: 
-        bmi_val = weight / ((height/100)**2)
-        bmi = round(float(bmi_val), 1)
+        bmi = round(float(weight / ((height/100)**2)), 1)
     except: 
         bmi = 0.0
 
-    # TDEE
     try:
-        if gender.lower() == 'male': 
-            bmr = 10 * weight + 6.25 * height - 5 * age + 5
-        else: 
-            bmr = 10 * weight + 6.25 * height - 5 * age - 161
+        bmr = 10 * weight + 6.25 * height - 5 * age + (5 if gender.lower() == 'male' else -161)
         mult = {'sedentary': 1.2, 'light': 1.375, 'moderate': 1.55, 'active': 1.725, 'very active': 1.9}
         tdee = int(float(bmr) * mult.get(activity.lower(), 1.2))
     except: 
@@ -298,21 +258,17 @@ def get_metrics(weight: float, height: float, age: int, gender: str, activity: s
 
     return {"bmi": bmi, "tdee": tdee}
 
-
 # ==========================================
 # 8. Serve React Frontend (production build)
 # ==========================================
 FRONTEND_DIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "frontend", "dist")
 
 if os.path.exists(FRONTEND_DIST):
-    # Fix Windows registry MIME type bug for JS/CSS files
     mimetypes.init()
     mimetypes.add_type("application/javascript", ".js")
     mimetypes.add_type("text/css", ".css")
-
-    # Serve static assets (JS, CSS, images) AND handle SPA routing via html=True
     app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="static")
 else:
     @app.get("/", include_in_schema=False)
     def frontend_not_built():
-        return {"detail": "Frontend not built. Run: cd frontend && npm run build"}
+        return {"detail": "API running. Frontend not built. Run npm run build in frontend."}

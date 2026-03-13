@@ -1,7 +1,10 @@
+import { supabase } from './supabase';
+
 export const API_BASE = "/api";
 
 export const fetchAPI = async (endpoint: string, options: RequestInit = {}) => {
-    const token = sessionStorage.getItem("token");
+    const { data } = await supabase.auth.getSession();
+    const token = data.session?.access_token;
 
     const headers = new Headers(options.headers || {});
     headers.set("Content-Type", "application/json");
