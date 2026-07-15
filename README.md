@@ -14,6 +14,8 @@ Generate custom Indian diet plans, workout routines, and health insights powered
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3FCF8E?style=flat-square&logo=supabase)](https://supabase.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=flat-square&logo=vercel)](https://vercel.com/)
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Try_It_Now-76b900?style=for-the-badge)](https://nutri-genius-mauve.vercel.app/)
+
 </div>
 
 ---
