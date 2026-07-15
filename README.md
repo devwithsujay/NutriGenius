@@ -1,10 +1,8 @@
 <div align="center">
 
-<img src="logo.svg" alt="NutriGenius Logo" width="200" />
+<h1><code>NUTRIGENIUS</code></h1>
 
-# NutriGenius
-
-**AI-Powered Personalized Nutrition & Wellness Platform**
+<h3>AI-Powered Personalized Nutrition & Wellness Platform</h3>
 
 Generate custom Indian diet plans, workout routines, and health insights powered by NVIDIA NIM AI.
 
