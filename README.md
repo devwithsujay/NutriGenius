@@ -155,8 +155,4 @@ MIT License
 
 ---
 
-<div align="center">
-
-**Built with by Sujay**
-
 </div>
