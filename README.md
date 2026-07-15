@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1><code>NUTRIGENIUS</code></h1>
+# `< NUTRIGENIUS />`
 
-<h3>AI-Powered Personalized Nutrition & Wellness Platform</h3>
+### *Your AI Nutritionist. Your Rules. Your Food.*
 
 Generate custom Indian diet plans, workout routines, and health insights powered by NVIDIA NIM AI.
 
